@@ -36,7 +36,7 @@ export default class SearchFilters extends React.Component {
           style={{ width: '100%', height: 50, borderColor: '#000000', borderWidth: 1, borderLeftWidth: .5, borderRightWidth: .5, borderTopWidth: 0, justifyContent: 'center', alignItems: 'center' }}
           onPress={() => this.setState({ visibleModal: 'bottom' })}
         >
-          <Text allowFontScaling  = {false} style={{fontSize: 24*PixelRatio.getFontScale(), color: '#ffffff' }}>{this.props.label}</Text>
+          <Text style={{fontSize: 24*PixelRatio.getFontScale(), color: '#ffffff' }}>{this.props.label}</Text>
         </TouchableOpacity>
         <Modal
           onBackdropPress={this.onClose}

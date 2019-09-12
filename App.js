@@ -2,6 +2,8 @@ import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 import React, {Components, useState} from 'react';
 import Main from './javaScriptFiles/Main.js';
 
+Text.defaultProps = Text.defaultProps || {};
+Text.defaultProps.allowFontScaling = false;
 export default function App() {
 
   [page, setPage] = useState(1); 
