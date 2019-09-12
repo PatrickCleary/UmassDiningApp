@@ -1,7 +1,13 @@
 import React from 'react';
-import {View, TouchableOpacity, Image, AsyncStorage, Alert} from 'react-native';
+import {View, TouchableOpacity, Image, AsyncStorage, PixelRatio} from 'react-native';
 import {ListItem} from 'react-native-elements';
 import { Entypo } from '@expo/vector-icons';
+
+const ratio = PixelRatio.getFontScale();
+const fs = ratio*25;
+const fsheart = ratio*30;
+const fstitle = ratio*17;
+const fssubtitle = ratio*15;
 
 
 
@@ -21,13 +27,14 @@ class FavoritesListItems extends React.Component {
         <ListItem 
             rightAvatar = {
               <TouchableOpacity onPress = {()=>this.props.displayOptions(this.props.item)} style = {{width : '15%',  justifyContent: 'center', alignItems: 'center'}}>
-              <Entypo name = {'dots-three-horizontal'} size = {28} color = {'#c45959'}/>
+              <Entypo name = {'dots-three-horizontal'} size = {fsheart} color = {'#c45959'}/>
               </TouchableOpacity>
             }
             
             titleProps = {{numberOfLines:1}}
             title = {this.props.item} 
-            subtitleStyle = {{color: 'grey'}}
+            titleStyle = {{fontSize:fstitle}}
+            subtitleStyle = {{color: 'grey', fssubtitle}}
             containerStyle = {{backgroundColor: this.props.where.length ? '#ffffff': '#ededed' }}
             subtitle = {this.props.where.length ? this.props.where : 'unavailable'} 
         /></TouchableOpacity>

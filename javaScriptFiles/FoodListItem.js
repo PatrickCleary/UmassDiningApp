@@ -4,7 +4,10 @@ import { ListItem } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
 
 const ratio = PixelRatio.getFontScale();
-const fs = ratio*30;
+const fs = ratio*25;
+const fsheart = ratio*30;
+const fstitle = ratio*17;
+const fssubtitle = ratio*15;
 
 
 
@@ -57,14 +60,14 @@ class FoodListItem extends React.Component {
               <TouchableOpacity
                 onPress={this.favPress}
                 style={{ width: '15%', justifyContent: 'center', alignItems: 'center' }}>
-                <AntDesign name={this.props.favorite ? 'heart' : 'hearto'} size={25} color={'#c45959'} />
+                <AntDesign name={this.props.favorite ? 'heart' : 'hearto'} size={fsheart} color={'#c45959'} />
               </TouchableOpacity>
             }
             titleProps={{ numberOfLines: 1 }}
-            titleStyle={{ color: 'black' }}
+            titleStyle={{ color: 'black', fontSize : fstitle }}
             title={this.props.item.food}
             subtitle={this.props.item.hall + " - " + this.props.item.meal + " - " + this.props.item.category}
-            subtitleStyle={{ color: 'grey' }}
+            subtitleStyle={{ color: 'grey', fontSize: fssubtitle }}
           /></TouchableOpacity>
       </View>
 

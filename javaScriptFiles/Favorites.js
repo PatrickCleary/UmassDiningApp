@@ -139,14 +139,14 @@ export default function Favorites(props) {
           <TouchableOpacity style={{ flex: 1, paddingLeft: '3%' }} onPress={() => { }}>
           </TouchableOpacity>
           <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
-            <Text style={{ color: 'black', fontFamily: 'Copperplate', fontSize: 40 * PixelRatio.getFontScale() }}>{'Favorites'}</Text>
+            <Text style={{ color: 'black', fontFamily: 'Copperplate', fontSize: 35 * PixelRatio.getFontScale() }}>{'Favorites'}</Text>
           </View>
           <TouchableOpacity style={{ flex: 1, paddingRight: '3%', }}
             onPress={() => Alert.alert(
               'Remove All Favorites?', '',
               [{ text: 'Yes', onPress: async function () { await AsyncStorage.removeItem('favoritesArray'); props.favClear() }, style: 'cancel' },
               { text: 'Cancel' }])}>
-            <FontAwesome name={'trash'} size={40 * PixelRatio.getFontScale()} color={'#c45959'} />
+            <FontAwesome name={'trash'} size={34 * PixelRatio.getFontScale()} color={'#c45959'} />
           </TouchableOpacity>
         </View>
       </View>

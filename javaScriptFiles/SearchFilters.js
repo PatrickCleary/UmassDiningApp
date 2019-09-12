@@ -26,6 +26,7 @@ export default class SearchFilters extends React.Component {
   }
   
   render() {
+    console.log(this.props.selected)
 
     return (
       <View style={styles.container}>
@@ -33,10 +34,12 @@ export default class SearchFilters extends React.Component {
   
 
         <TouchableOpacity
-          style={{ width: '100%', height: 50, borderColor: '#000000', borderWidth: 1, borderLeftWidth: .5, borderRightWidth: .5, borderTopWidth: 0, justifyContent: 'center', alignItems: 'center' }}
+          style={{ 
+            backgroundColor: this.props.chosen? '#c45959' : '#ffffff',
+            width: '100%', height: 50, borderColor: '#000000', borderWidth: 1, borderLeftWidth: .5, borderRightWidth: .5, borderTopWidth: 0, justifyContent: 'center', alignItems: 'center' }}
           onPress={() => this.setState({ visibleModal: 'bottom' })}
         >
-          <Text style={{fontSize: 24*PixelRatio.getFontScale(), color: '#ffffff' }}>{this.props.label}</Text>
+          <Text style={{fontSize: 17*PixelRatio.getFontScale(), color: this.props.chosen? '#ffffff' : '#c45959' }}>{this.props.label}</Text>
         </TouchableOpacity>
         <Modal
           onBackdropPress={this.onClose}
@@ -44,14 +47,13 @@ export default class SearchFilters extends React.Component {
           onSwipeComplete={this.onClose}
           swipeDirection={['down']}
           style={styles.bottomModal}
-          onShow = {()=>this.setState({selected: []})}
 
         >
          {
            (this.props.check==='cat')?
-                <SearchFilterItemsCategory options={this.props.options} selected={this.state.selected} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
+                <SearchFilterItemsCategory options={this.props.options} selected={this.props.selected} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
                   :
-              <SearchFilterItems options={this.props.options} selected={this.state.selected} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
+              <SearchFilterItems options={this.props.options} selected={this.props.selected} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
          }
         </Modal>
 

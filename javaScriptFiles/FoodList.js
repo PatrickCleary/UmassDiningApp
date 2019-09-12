@@ -3,7 +3,7 @@ import { Text, View, FlatList, ActivityIndicator, PixelRatio } from 'react-nativ
 import FoodListItem from './FoodListItem';
 
 const ratio = PixelRatio.getFontScale();
-const fs = ratio*30;
+const fs = ratio*25;
 let currentCategory = 'none';
 
 

@@ -106,13 +106,13 @@ export default function FoodPage(props) {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
 
                         <TouchableOpacity style={{ flex: 1, paddingLeft: '3%' }} onPress={() => props.closeModal()}>
-                            <Entypo name={'chevron-with-circle-down'} size={40*ratio} color={'#c45959'} />
+                            <Entypo name={'chevron-with-circle-down'} size={30*ratio} color={'#c45959'} />
                         </TouchableOpacity>
                         <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={{ color: 'black', fontSize: 27*ratio }}>{foodObj.food}</Text>
                         </View>
                         <TouchableOpacity style={{ flex: 1, paddingRight: '3%' }} onPress={() => props.onFavChange(!props.favorite, props.name)}>
-                            <AntDesign name={props.favorite ? 'heart' : 'hearto'} size={40*ratio} color={'#c45959'} />
+                            <AntDesign name={props.favorite ? 'heart' : 'hearto'} size={30*ratio} color={'#c45959'} />
                         </TouchableOpacity>
                     </View>
 
@@ -143,10 +143,8 @@ export default function FoodPage(props) {
                     <Text style = {textStyle} >Dietary: {getDietary(foodObj)}</Text>
                     </View>
                     </View>
-                    <Text style = {textStyle}/>
-                    <Text style = {textStyle}/>
 
-                    <Text style = {textStyle}>This information comes from the Umass Dining Website but may not be up to date. Check with dining hall staff to confirm.</Text>
+                    <Text style = {{fontSize : 15*ratio}}>This information comes from the Umass Dining Website but may not be accurate.</Text>
                     <Text style = {textStyle}/>
                 
                 </View>

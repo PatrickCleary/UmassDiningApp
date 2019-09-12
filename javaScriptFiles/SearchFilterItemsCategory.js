@@ -46,7 +46,7 @@ export default function SearchFilterItemsCategory(props) {
 
               selected.includes(item) ?
 
-                <AntDesign name={'checkcircle'} size={17 * ratio} color={'#c45959'} />
+                <AntDesign name={'checkcircle'} size={14 * ratio} color={'#c45959'} />
 
                 :
                 null

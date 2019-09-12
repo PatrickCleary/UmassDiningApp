@@ -237,8 +237,10 @@ function getCategories(){
                 passSelectedHalls={(selected) => { updateSearchWait(todaysMenu, searchTerm, selected, mealFilter, categoryFilter); changeHallFilter(selected); }}
                 passSelectedMeals={(selected) => { updateSearchWait(todaysMenu, searchTerm, hallFilter, selected, categoryFilter); changeMealFilter(selected); }}
                 passSelectedCategories={(selected) => { updateSearchWait(todaysMenu, searchTerm, hallFilter, mealFilter, selected); changeCategoryFilter(selected); }}
-                hallLabel={(hallFilter.length < 1 || hallFilter.length > 3) ? 'Select Hall' : hallFilter.toString()}
-                mealLabel={(mealFilter.length < 1 || mealFilter.length > 4) ? 'Select Meal' : mealFilter.toString()}
+                hallChosen={hallFilter.length>0 }
+                mealChosen={(mealFilter.length> 0)}
+                hallFilter = {hallFilter}
+                mealFilter = {mealFilter}
                 categoryLabel={(categoryFilter.length < 1 || categoryFilter.length > 4) ? 'Select Category' : categoryFilter.toString()}
                 categoriesProp = {getCategories()}
 

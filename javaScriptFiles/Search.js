@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, AsyncStorage, ActivityIndicator, Button } from 'react-native';
-import { SearchBar } from 'react-native-elements'
+import { SearchBar, Icon } from 'react-native-elements'
 import FoodList from './FoodList';
 import Modal from 'react-native-modal';
 import FoodPage from './FoodPage';
@@ -51,9 +51,9 @@ export default function Search(props) {
 
             <SearchBar autoCorrect= {false} round={true} platform='default' lightTheme={true} placeholder="Search Today's Menu" onChangeText={(text) => { props.onChangeText(text) }} value={props.searchTerm} ></SearchBar>
             <View style={{ flexDirection: 'row' }}>
-                <SearchFilters selected={hallFilter} options={hallArray} passSelected={(selected) => props.passSelectedHalls(selected)} label={props.hallLabel} />
-                <SearchFilters selected={mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={props.mealLabel} />
-                <SearchFilters selected={categoryFilter} options={categoryArray} check ={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={props.categoryLabel} />
+                <SearchFilters selected={props.hallFilter} options={hallArray} passSelected={(selected) => props.passSelectedHalls(selected)} label={"Hall"} chosen = {props.hallChosen}/>
+                <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen = {props.mealChosen} />
+                <SearchFilters selected={categoryFilter} options={categoryArray} check ={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} />
             </View>
 
 

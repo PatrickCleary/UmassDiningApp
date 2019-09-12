@@ -5,10 +5,10 @@ import { getCorrectDate } from './helperFunctions';
 const fs = PixelRatio.getFontScale();
 
 const styleText = {
-  fontSize: fs * 20,
+  fontSize: fs * 17,
 }
 const headerText = {
-  fontSize: fs * 30
+  fontSize: fs * 25
 }
 
 function fixDates(date) {
@@ -65,7 +65,7 @@ export default function Settings(props) {
       </View>
         <View style={{flex:1, alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
           <Text style={headerText}>Suggestions? Questions? Contact me:</Text>
-          <TextInput editable={false} multiline={true} style={{ fontSize: 20 * fs }}>patcleary11@gmail.com</TextInput>
+          <TextInput editable={false} multiline={true} style={{ fontSize: 17 * fs }}>patcleary11@gmail.com</TextInput>
         </View>
 
         <View style={{flex:.5, alignItems:'center', alignContent:'center', justifyContent:'center'}}>

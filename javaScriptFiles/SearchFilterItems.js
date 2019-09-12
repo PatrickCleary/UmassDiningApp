@@ -39,13 +39,14 @@ export default function SearchFilterItems(props) {
           actiiveOpacity={1}
           onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelected(selectedOptions); props.passSelected(selectedOptions) } else { selectedOptions = selected.concat([item]); changeSelected(selected.concat([item])); props.passSelected(selectedOptions); } }}
         >
-          <ListItem title={item}
-
+          <ListItem 
+          title={item}
+          titleStyle = {{fontSize:18*ratio}}
             rightAvatar={
 
               selected.includes(item) ?
 
-                <AntDesign name={'checkcircle'} size={17 * ratio} color={'#c45959'} />
+                <AntDesign name={'checkcircle'} size={18 * ratio} color={'#c45959'} />
                 :
                 null
             }
@@ -59,13 +60,16 @@ export default function SearchFilterItems(props) {
 
   return (
     <View >
-      <View style={{ width: '100%', }}>
+      <View style={{ width: '100%', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
         <TouchableHighlight
+        style = {{width:'100%'}}
           underlayColor='grey'
           actiiveOpacity={1}
-          onPress={() => { changeSelected(props.options); props.passSelected(props.options) }}
+          onPress={() => {props.options.length? changeSelected([]):changeSelected(props.options); props.passSelected([]); }}
         >
-          <ListItem title={'All'}
+          <ListItem title={'Clear Filters'}
+          titleStyle ={{fontSize:18*ratio}}
+          contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
 
           />
         </TouchableHighlight>
