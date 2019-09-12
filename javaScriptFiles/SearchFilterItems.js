@@ -10,6 +10,11 @@ export default function SearchFilterItems(props) {
 
 
 
+  changeSelection = (selection)=>{
+    changeSelected(selection);
+    props.holdSelection(selection);
+  }
+
 
   renderSeparator = () => {
     return (
@@ -37,7 +42,7 @@ export default function SearchFilterItems(props) {
         <TouchableHighlight
           underlayColor='grey'
           actiiveOpacity={1}
-          onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelected(selectedOptions); props.passSelected(selectedOptions) } else { selectedOptions = selected.concat([item]); changeSelected(selected.concat([item])); props.passSelected(selectedOptions); } }}
+          onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelection(selectedOptions); } else { selectedOptions = selected.concat([item]); changeSelection(selected.concat([item]));  } }}
         >
           <ListItem 
           title={item}
@@ -65,10 +70,10 @@ export default function SearchFilterItems(props) {
         style = {{width:'100%'}}
           underlayColor='grey'
           actiiveOpacity={1}
-          onPress={() => {props.options.length? changeSelected([]):changeSelected(props.options); props.passSelected([]); }}
+          onPress={() => {changeSelection([]);}}
         >
-          <ListItem title={'Clear Filters'}
-          titleStyle ={{fontSize:18*ratio}}
+          <ListItem title={'Clear'}
+          titleStyle ={{fontSize:18*ratio, color: "#c45959"}}
           contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
 
           />
@@ -84,6 +89,25 @@ export default function SearchFilterItems(props) {
         renderItem={this.renderItem}
         keyExtractor={(item, index) => item}
       />
+
+{renderSeparator()}
+
+<View style={{ width: '100%', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
+        <TouchableHighlight
+        style = {{width:'100%'}}
+          underlayColor='grey'
+          actiiveOpacity={1}
+          onPress={() => {props.close(); props.passSelected(selected); }}
+        >
+          <ListItem title={'Go'}
+          titleStyle ={{fontSize:18*ratio, color: "#c45959"}}
+          contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
+
+          />
+        </TouchableHighlight>
+
+        {renderSeparator()}
+      </View>
     </View>
   );
 

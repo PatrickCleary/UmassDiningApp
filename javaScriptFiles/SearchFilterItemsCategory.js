@@ -37,7 +37,7 @@ export default function SearchFilterItemsCategory(props) {
         <TouchableHighlight
           underlayColor='grey'
           actiiveOpacity={1}
-          onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelected(selectedOptions); props.passSelected(selectedOptions) } else { selectedOptions = selected.concat([item]); changeSelected(selected.concat([item])); props.passSelected(selectedOptions); } }}
+          onPress={() => {if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelected(selectedOptions); props.passSelected(selectedOptions) } else { selectedOptions = selected.concat([item]); changeSelected(selected.concat([item])); props.passSelected(selectedOptions); } }}
         >
           <ListItem title={item}
             titleProps={{ numberOfLines:1 }}

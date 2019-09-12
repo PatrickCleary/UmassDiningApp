@@ -33,10 +33,13 @@ export default class FoodList extends React.PureComponent {
     }
   }
 
-  _renderItem = ({ item }) => {
+  _renderItem = ({ item, index }) => {
 
-
-    let categoryChange=false;
+    let categoryChange = true;
+    if(index>0){
+    if(item.category===this.props.jsonFood[index-1].category){
+      categoryChange = false;
+    }}
 
     //check if the menu item is a favorite before rendering
     item.favorite = false;
@@ -49,14 +52,9 @@ export default class FoodList extends React.PureComponent {
       }
     }
 
-    //render item
-    if(!(currentCategory === item.category )){
-      currentCategory = item.category;
-      categoryChange=true;
-    }
     return (
       
-      <FoodListItem categoryChange = {categoryChange} currentCategory = {currentCategory} onFoodPress={(foodName, favorite) => this.props.onFoodPress(foodName, favorite)} setFav={(boolean) => this.props.onFavChange(boolean, item.food)} item={item} favorite={item.favorite} />
+      <FoodListItem categoryChange = {categoryChange} onFoodPress={(foodName, favorite) => this.props.onFoodPress(foodName, favorite)} setFav={(boolean) => this.props.onFavChange(boolean, item.food)} item={item} favorite={item.favorite} />
 
     )
    

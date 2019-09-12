@@ -30,7 +30,8 @@ class FoodListItem extends React.Component {
 
 
   shouldComponentUpdate(nextProps) {
-    return !(nextProps.favorite === this.props.favorite)
+    return (!(nextProps.favorite === this.props.favorite) || !(nextProps.categoryChange == this.props.categoryChange))
+
 
   }
 
@@ -48,8 +49,8 @@ class FoodListItem extends React.Component {
       style={{ flex: 1 }}>
 
         {this.props.categoryChange?
-          <View style = {{justifyContent:'center', alignItems:'center', backgroundColor:'#000000'}}>
-          <Text style = {{flex:1, fontSize:fs, fontFamily:'Copperplate', color:'white'}}>{this.props.currentCategory}</Text>
+          <View style = {{justifyContent:'center', alignItems:'center', backgroundColor:'#383838'}}>
+          <Text style = {{flex:1, fontSize:fs, fontFamily:'Copperplate', color:'white'}}>{this.props.item.category}</Text>
           </View>
         :
             null
