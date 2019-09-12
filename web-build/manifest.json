@@ -1,0 +1,31 @@
+{
+  "background_color": "#ffffff",
+  "description": "A Neat Expo App",
+  "dir": "auto",
+  "display": "standalone",
+  "lang": "en",
+  "name": "Amherst Eats",
+  "orientation": "portrait",
+  "prefer_related_applications": true,
+  "related_applications": [],
+  "short_name": "Amherst Eats",
+  "start_url": ".",
+  "theme_color": "#4630EB",
+  "icons": [
+    {
+      "src": "/apple/icons/icon_180x180.641d203bf8c873f32920e3ce5641dae8.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple/icons/icon_192x192.80d7831d0694a1b0d09ce283a3e231fc.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple/icons/icon_512x512.0b964ed1f53f4c1a1237d89dda5204a9.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

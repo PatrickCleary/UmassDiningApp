@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "Amherst Eats",
+    "slug": "AwesomeProject",
+    "privacy": "unlisted",
+    "sdkVersion": "33.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "description": "Amherst Eats was defined to be used by Umass Amherst students to find out what's available at their favorite dining hall. You can add dishes to your favorites page and check in to see if they are available anywhere.",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "owner":"Patrick Cleary",
+    "icon": "./assets/fork.png",
+    "splash": {
+      "image": "./assets/fork.png",
+      "resizeMode" : "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
