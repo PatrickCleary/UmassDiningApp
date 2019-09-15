@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, View } from 'react-native';
 import Favorites from './Favorites';
 import Settings from './Settings';
 import Search from './Search';
@@ -239,6 +239,7 @@ function getCategories(){
                 passSelectedCategories={(selected) => { updateSearchWait(todaysMenu, searchTerm, hallFilter, mealFilter, selected); changeCategoryFilter(selected); }}
                 hallChosen={hallFilter.length>0 }
                 mealChosen={(mealFilter.length> 0)}
+                categoryChosen = {(categoryFilter.length>0)}
                 hallFilter = {hallFilter}
                 mealFilter = {mealFilter}
                 categoryLabel={(categoryFilter.length < 1 || categoryFilter.length > 4) ? 'Select Category' : categoryFilter.toString()}

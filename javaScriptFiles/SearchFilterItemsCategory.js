@@ -53,7 +53,7 @@ export default function SearchFilterItemsCategory(props) {
         style={{
           height: 1,
           width: "100%",
-          backgroundColor: props.options? "#dedede",
+          backgroundColor: "#dedede",
           //marginLeft: ""
         }}
       />
@@ -82,7 +82,7 @@ export default function SearchFilterItemsCategory(props) {
         >
           <ListItem title={item}
             titleProps={{ numberOfLines: 1 }}
-
+            titleStyle = {{fontSize: 14*ratio}}
             containerStyle={{backgroundColor: option? '#ffffff' : '#ededed'}}
             rightAvatar={
 

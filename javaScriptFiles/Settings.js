@@ -63,8 +63,10 @@ export default function Settings(props) {
 
         <Text style={styleText}></Text>
       </View>
-        <View style={{flex:1, alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={headerText}>Suggestions? Questions? Contact me:</Text>
+        <View style={{flex:1, padding: '5%', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
+          <Text style={headerText}>Suggestions? Questions?</Text>
+          
+          <Text style = {headerText}> Contact me:</Text>
           <TextInput editable={false} multiline={true} style={{ fontSize: 17 * fs }}>patcleary11@gmail.com</TextInput>
         </View>
 

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, FlatList, ActivityIndicator, PixelRatio } from 'react-native';
 import FoodListItem from './FoodListItem';
 
-const ratio = PixelRatio.getFontScale();
-const fs = ratio*25;
 let currentCategory = 'none';
 
 

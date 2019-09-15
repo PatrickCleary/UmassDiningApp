@@ -48,12 +48,15 @@ export default function Search(props) {
                     favorite={props.modalInfo.modalFav}
                 />
             </Modal>
-
-            <SearchBar autoCorrect= {false} round={true} platform='default' lightTheme={true} placeholder="Search Today's Menu" onChangeText={(text) => { props.onChangeText(text) }} value={props.searchTerm} ></SearchBar>
+                
+            <SearchBar inputContainerStyle = {{backgroundColor: '#ffffff'}}containerStyle = {{backgroundColor:'#c45959' }} autoCorrect= {false} round={true} platform='default' lightTheme={true} placeholder="Search Today's Menu" onChangeText={(text) => { props.onChangeText(text) }} value={props.searchTerm} ></SearchBar>
             <View style={{ flexDirection: 'row' }}>
+                
+
+
                 <SearchFilters selected={props.hallFilter} options={hallArray} passSelected={(selected) => props.passSelectedHalls(selected)} label={"Hall"} chosen = {props.hallChosen}/>
                 <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen = {props.mealChosen} />
-                <SearchFilters selected={categoryFilter} options={categoryArray} check ={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} />
+                <SearchFilters selected={categoryFilter} options={categoryArray} check ={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen = {props.categoryChosen}/>
             </View>
 
 

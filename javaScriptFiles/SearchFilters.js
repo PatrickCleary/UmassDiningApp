@@ -51,7 +51,7 @@ export default class SearchFilters extends React.Component {
         >
          {
            (this.props.check==='cat')?
-                <SearchFilterItemsCategory options={this.props.options} selected={this.props.selected} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
+                <SearchFilterItemsCategory holdSelection = {(selection)=>{this.setState({selection2:selection});}} options={this.props.options} selected={this.props.selected} close = {this.onClose} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
                   :
               <SearchFilterItems holdSelection = {(selection)=>{this.setState({selection2:selection});}} options={this.props.options} selected={this.props.selected} close = {this.onClose} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
          }

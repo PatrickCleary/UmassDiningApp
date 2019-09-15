@@ -7,9 +7,21 @@ Text.defaultProps.allowFontScaling = false;
 export default function App() {
 
   [page, setPage] = useState(1); 
+  let bgcolor = '#ffffff'
+  switch(page){
+    case(1): 
+    bgcolor = '#c45959';
+    break;
+    case(2):
+    bgcolor = "#ffffff";
+    break;
+    default :
+    bgcolor = '#000000'
+    break;
+  }
 
   return (
-  <SafeAreaView style = {{flex:1, backgroundColor:'#f0f0f0'}}>
+  <SafeAreaView style = {{flex:1, backgroundColor:bgcolor}}>
   <View style={{flex:1}}>
         
     
@@ -22,12 +34,3 @@ export default function App() {
 
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#20488a',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
