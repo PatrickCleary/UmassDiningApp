@@ -1,7 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import {  View, TouchableHighlight, FlatList, PixelRatio } from 'react-native';
+import { View, TouchableHighlight, FlatList, PixelRatio } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import {  AntDesign } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
+
+
+//make this dynamic
+const allCategories = ["Breads",
+"Breakfast Pastries",
+"Breakfast Entrees",
+"Deli Bar",
+"Desserts",
+"Entrees",
+"Express",
+"Gluten Free",
+"Grab n'Go Cold Lunch",
+"International",
+"Grill Station",
+"Latino",
+"Lunch/Dinner Miscellaneous",
+"Grab n'Go Hot Lunch",
+"Late Night Special",
+"Noodle Bowl",
+"North Display Worcester",
+"Pasta Bar",
+"Soups",
+"Salad Bar/Dressings",
+"Pizza",
+"South Display Worcester",
+"Starches",
+"Vegetarian Line",
+"Street Food",
+"Vegetables",
+"Sushi",
+]
 
 export default function SearchFilterItemsCategory(props) {
 
@@ -9,6 +40,11 @@ export default function SearchFilterItemsCategory(props) {
   [selected, changeSelected] = useState(props.selected);
 
 
+  
+  changeSelection = (selection)=>{
+    changeSelected(selection);
+    props.holdSelection(selection);
+  }
 
 
   renderSeparator = () => {
@@ -17,7 +53,7 @@ export default function SearchFilterItemsCategory(props) {
         style={{
           height: 1,
           width: "100%",
-          backgroundColor: "#dedede",
+          backgroundColor: props.options? "#dedede",
           //marginLeft: ""
         }}
       />
@@ -32,16 +68,22 @@ export default function SearchFilterItemsCategory(props) {
   }
 
   renderItem = ({ item }) => {
+    let option = true;
+    if(!props.options.includes(item)){
+      option = false;
+      
+    }
+
     return (
-      <View style={{flex:.3333333}}>
+      <View style={{ flex: .3333333 }}>
         <TouchableHighlight
-          underlayColor='grey'
           actiiveOpacity={1}
-          onPress={() => {if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelected(selectedOptions); props.passSelected(selectedOptions) } else { selectedOptions = selected.concat([item]); changeSelected(selected.concat([item])); props.passSelected(selectedOptions); } }}
+          onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelection(selectedOptions); } else { selectedOptions = selected.concat([item]); changeSelection(selected.concat([item]));  } }}
         >
           <ListItem title={item}
-            titleProps={{ numberOfLines:1 }}
+            titleProps={{ numberOfLines: 1 }}
 
+            containerStyle={{backgroundColor: option? '#ffffff' : '#ededed'}}
             rightAvatar={
 
               selected.includes(item) ?
@@ -61,14 +103,17 @@ export default function SearchFilterItemsCategory(props) {
 
   return (
     <View style >
-      <View style={{width:'100%'}}>
+      
+      <View style={{ width: '100%', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
         <TouchableHighlight
+        style = {{width:'100%'}}
           underlayColor='grey'
           actiiveOpacity={1}
-          onPress={() => { changeSelected(props.options); props.passSelected(props.options) }}
+          onPress={() => {changeSelection([]);}}
         >
-          <ListItem titleStyle = {{alignContent:'center', justifyContent:'center'}} 
-          title={'All'}
+          <ListItem title={'Clear'}
+          titleStyle ={{fontSize:18*ratio, color: "#c45959"}}
+          contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
 
           />
         </TouchableHighlight>
@@ -76,15 +121,33 @@ export default function SearchFilterItemsCategory(props) {
         {renderSeparator()}
       </View>
 
-        <View style = {{backgroundColor:'#ffffff'}}>
-      <FlatList
-        ItemSeparatorComponent={this.renderSeparator}
-        data={props.options}
-        renderItem={this.renderItem}
-        keyExtractor={(item, index) => item}
-        numColumns={3}
-      />
+      <View style={{ backgroundColor: '#ffffff' }}>
+        <FlatList
+          ItemSeparatorComponent={this.renderSeparator}
+          data={allCategories}
+          renderItem={this.renderItem}
+          keyExtractor={(item, index) => item}
+          numColumns={3}
+        />
       </View >
+      {renderSeparator()}
+
+      <View style={{ width: '100%', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
+        <TouchableHighlight
+          style={{ width: '100%' }}
+          underlayColor='grey'
+          actiiveOpacity={1}
+          onPress={() => { props.close(); props.passSelected(selected); }}
+        >
+          <ListItem title={'Go'}
+            titleStyle={{ fontSize: 18 * ratio, color: "#c45959" }}
+            contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+
+          />
+        </TouchableHighlight>
+
+        {renderSeparator()}
+      </View>
     </View>
   );
 
