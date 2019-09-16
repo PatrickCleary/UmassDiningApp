@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList, ActivityIndicator, PixelRatio } from 'react-native';
 import FoodListItem from './FoodListItem';
+import * as Constants from './Constants'
+
 
 let currentCategory = 'none';
 
@@ -25,7 +27,7 @@ export default class FoodList extends React.PureComponent {
 
   renderHeader = ()=>{
     if(loading){
-      return <ActivityIndicator  size = 'large' color = '#c45959'/>
+      return <ActivityIndicator  size = 'large' color = {Constants.mainColor}/>
     }else{
       return null;
     }

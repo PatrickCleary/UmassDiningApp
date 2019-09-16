@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View, TextInput, Button, ActivityIndicator, PixelRatio } from 'react-native';
 import { getCorrectDate } from './helperFunctions';
+import * as Constants from './Constants';
 
 const fs = PixelRatio.getFontScale();
 
@@ -33,13 +34,13 @@ export default function Settings(props) {
         <Text></Text>
         <Text style={styleText}>Menu Date: {fixDates(props.menuDate)}</Text>
         <Text style={styleText}>Today's Date: {fixDates(getCorrectDate())}</Text>
-        <Button color='#c45959' title={'Update Menu'} onPress={() => { setLoading([true, false]); setTimeout(() => { props.updateMenu(); setLoading([false, true]) }, 5000) }}
+        <Button color={Constants.mainColor} title={'Update Menu'} onPress={() => { setLoading([true, false]); setTimeout(() => { props.updateMenu(); setLoading([false, true]) }, 5000) }}
         />
         <View style={{ flex: 1 }}>
 
           {
             loadingMenu[0] ?
-              <ActivityIndicator size='large' color='#c45959' />
+              <ActivityIndicator size='large' color={Constants.mainColor} />
               :
               loadingMenu[1] ?
                 <Text style={styleText}>Menu updated.</Text>

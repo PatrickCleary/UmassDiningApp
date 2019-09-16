@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, TouchableHighlight, FlatList, PixelRatio } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
-
+import * as Constants from './Constants';
 
 //make this dynamic
 const allCategories = ["Breads",
@@ -88,7 +88,7 @@ export default function SearchFilterItemsCategory(props) {
 
               selected.includes(item) ?
 
-                <AntDesign name={'checkcircle'} size={14 * ratio} color={'#c45959'} />
+                <AntDesign name={'checkcircle'} size={14 * ratio} color={Constants.mainColor} />
 
                 :
                 null
@@ -112,7 +112,7 @@ export default function SearchFilterItemsCategory(props) {
           onPress={() => {changeSelection([]);}}
         >
           <ListItem title={'Clear'}
-          titleStyle ={{fontSize:18*ratio, color: "#c45959"}}
+          titleStyle ={{fontSize:18*ratio, color: Constants.mainColor}}
           contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
 
           />
@@ -140,7 +140,7 @@ export default function SearchFilterItemsCategory(props) {
           onPress={() => { props.close(); props.passSelected(selected); }}
         >
           <ListItem title={'Go'}
-            titleStyle={{ fontSize: 18 * ratio, color: "#c45959" }}
+            titleStyle={{ fontSize: 18 * ratio, color: Constants.mainColor }}
             contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 
           />

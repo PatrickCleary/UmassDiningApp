@@ -1,10 +1,10 @@
 {
   "expoServerNgrokUrl": "https://ud-fuc.anonymous.awesomeproject.exp.direct",
   "packagerNgrokUrl": "https://packager.ud-fuc.anonymous.awesomeproject.exp.direct",
-  "ngrokPid": 7488,
+  "ngrokPid": 21520,
   "expoServerPort": 19000,
   "devToolsPort": 19002,
   "packagerPort": 19001,
-  "packagerPid": 14096,
+  "packagerPid": 3312,
   "webpackServerPort": null
 }

@@ -5,7 +5,7 @@ import FoodList from './FoodList';
 import Modal from 'react-native-modal';
 import FoodPage from './FoodPage';
 import SearchFilters from './SearchFilters';
-
+import * as Constants from './Constants'
 
 
 /*Flat list:
@@ -49,7 +49,7 @@ export default function Search(props) {
                 />
             </Modal>
                 
-            <SearchBar inputContainerStyle = {{backgroundColor: '#ffffff'}}containerStyle = {{backgroundColor:'#c45959' }} autoCorrect= {false} round={true} platform='default' lightTheme={true} placeholder="Search Today's Menu" onChangeText={(text) => { props.onChangeText(text) }} value={props.searchTerm} ></SearchBar>
+            <SearchBar returnKeyType='search' inputContainerStyle = {{backgroundColor: '#ffffff'}} cancelButtonProps ={buttonStyle = {color:'#ffffff'}} containerStyle = {{backgroundColor:Constants.mainColor }} autoCorrect= {false} platform='ios' lightTheme={true} placeholder="Search Today's Menu" onChangeText={(text) => { props.onChangeText(text) }} value={props.searchTerm} ></SearchBar>
             <View style={{ flexDirection: 'row' }}>
                 
 

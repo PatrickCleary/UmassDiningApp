@@ -6,7 +6,7 @@ import FoodPage from './FoodPage.js';
 import Modal from 'react-native-modal';
 import FavoritesOptionsList from './FavoritesOptionsList';
 import { FontAwesome } from '@expo/vector-icons';
-
+import * as Constants from './Constants'
 
 
 
@@ -146,7 +146,7 @@ export default function Favorites(props) {
               'Remove All Favorites?', '',
               [{ text: 'Yes', onPress: async function () { await AsyncStorage.removeItem('favoritesArray'); props.favClear() }, style: 'cancel' },
               { text: 'Cancel' }])}>
-            <FontAwesome name={'trash'} size={34 * PixelRatio.getFontScale()} color={'#c45959'} />
+            <FontAwesome name={'trash'} size={34 * PixelRatio.getFontScale()} color={Constants.mainColor} />
           </TouchableOpacity>
         </View>
       </View>

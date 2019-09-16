@@ -97,9 +97,12 @@ function getCategories(){
     }
 
     let categorySet = new Set([]);
-            for(let x = 0; x< objectMinusCategoryFilters.length; x++){
+            
+    for(let x = 0; x< objectMinusCategoryFilters.length; x++){
                 categorySet.add(objectMinusCategoryFilters[x].category);
+            
             }
+
             return  Array.from(categorySet);
 }
 

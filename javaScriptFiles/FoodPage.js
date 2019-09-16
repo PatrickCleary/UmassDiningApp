@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity, ActivityIndicator, PixelRatio } from 'react-native';
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { isFavorite, fixString } from './helperFunctions';
+import * as Constants from './Constants'
+
 
 export default function FoodPage(props) {
 
@@ -106,13 +108,13 @@ export default function FoodPage(props) {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
 
                         <TouchableOpacity style={{ flex: 1, paddingLeft: '3%' }} onPress={() => props.closeModal()}>
-                            <Entypo name={'chevron-with-circle-down'} size={30*ratio} color={'#c45959'} />
+                            <Entypo name={'chevron-with-circle-down'} size={30*ratio} color={Constants.mainColor} />
                         </TouchableOpacity>
                         <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={{ color: 'black', fontSize: 27*ratio }}>{foodObj.food}</Text>
                         </View>
                         <TouchableOpacity style={{ flex: 1, paddingRight: '3%' }} onPress={() => props.onFavChange(!props.favorite, props.name)}>
-                            <AntDesign name={props.favorite ? 'heart' : 'hearto'} size={30*ratio} color={'#c45959'} />
+                            <AntDesign name={props.favorite ? 'heart' : 'hearto'} size={30*ratio} color={Constants.mainColor} />
                         </TouchableOpacity>
                     </View>
 
@@ -163,14 +165,14 @@ export default function FoodPage(props) {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
 
                         <TouchableOpacity style={{ flex: 1, paddingLeft: '3%' }} onPress={() => props.closeModal()}>
-                            <Entypo name={'chevron-with-circle-down'} size={30*ratio} color={'#c45959'} />
+                            <Entypo name={'chevron-with-circle-down'} size={30*ratio} color={Constants.mainColor} />
                         </TouchableOpacity>
                         <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={{ color: 'black', fontSize: 27*ratio }}>Unavailable</Text>
                         </View>
                         <TouchableOpacity style={{ flex: 1, paddingRight: '3%' }} onPress={() => props.onFavChange(!props.favorite, props.name)}>
 
-                            <AntDesign name={props.favorite ? 'heart' : 'hearto'} size={30*ratio} color={'#c45959'} />
+                            <AntDesign name={props.favorite ? 'heart' : 'hearto'} size={30*ratio} color={Constants.mainColor} />
 
                         </TouchableOpacity>
                     </View>
@@ -184,7 +186,7 @@ export default function FoodPage(props) {
     else{
          return(
         <View style={{ flex: 12, marginTop: 40, backgroundColor: '#ffffff', alignItems:'center', justifyContent:'center' }}>
-                <ActivityIndicator size = 'large' color = '#c45959'/>
+                <ActivityIndicator size = 'large' color = {Constants.mainColor}/>
             </View>
         );   
     }

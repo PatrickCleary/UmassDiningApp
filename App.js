@@ -1,6 +1,7 @@
 import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 import React, {Components, useState} from 'react';
 import Main from './javaScriptFiles/Main.js';
+import * as Constants from './javaScriptFiles/Constants.js';
 
 Text.defaultProps = Text.defaultProps || {};
 Text.defaultProps.allowFontScaling = false;
@@ -10,9 +11,12 @@ export default function App() {
   let bgcolor = '#ffffff'
   switch(page){
     case(1): 
-    bgcolor = '#c45959';
+    bgcolor = Constants.mainColor;
     break;
     case(2):
+    bgcolor = "#f0f0f0";
+    break;
+    case(3):
     bgcolor = "#ffffff";
     break;
     default :

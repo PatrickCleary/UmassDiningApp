@@ -2,6 +2,8 @@ import React from 'react';
 import { View, TouchableOpacity, Text, PixelRatio } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
+import * as Constants from './Constants'
+
 
 const ratio = PixelRatio.getFontScale();
 const fs = ratio*25;
@@ -49,8 +51,8 @@ class FoodListItem extends React.Component {
       style={{ flex: 1 }}>
 
         {this.props.categoryChange?
-          <View style = {{justifyContent:'center', alignItems:'center', backgroundColor:'#383838'}}>
-          <Text style = {{flex:1, fontSize:fs, fontFamily:'Copperplate', color:'white'}}>{this.props.item.category}</Text>
+          <View style = {{justifyContent:'center', alignItems:'center', backgroundColor:'#ffffff'}}>
+          <Text style = {{flex:1, fontSize:fs, fontFamily:'Copperplate', color:'#383838'}}>{this.props.item.category}</Text>
           </View>
         :
             null
@@ -61,7 +63,7 @@ class FoodListItem extends React.Component {
               <TouchableOpacity
                 onPress={this.favPress}
                 style={{ width: '15%', justifyContent: 'center', alignItems: 'center' }}>
-                <AntDesign name={this.props.favorite ? 'heart' : 'hearto'} size={fsheart} color={'#c45959'} />
+                <AntDesign name={this.props.favorite ? 'heart' : 'hearto'} size={fsheart} color={Constants.mainColor} />
               </TouchableOpacity>
             }
             titleProps={{ numberOfLines: 1 }}

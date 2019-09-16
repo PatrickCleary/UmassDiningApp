@@ -3,6 +3,8 @@ import { View,  Text, StyleSheet, PixelRatio, TouchableOpacity } from 'react-nat
 import Modal from 'react-native-modal';
 import SearchFilterItems from './SearchFilterItems';
 import SearchFilterItemsCategory from './SearchFilterItemsCategory';
+import * as Constants from './Constants'
+
 
 
 
@@ -22,7 +24,6 @@ export default class SearchFilters extends React.Component {
     
     
     this.setState({ visibleModal: null })
-    console.log(this.state.selection2);
     this.props.passSelected(this.state.selection2);
   }
   
@@ -35,11 +36,12 @@ export default class SearchFilters extends React.Component {
 
         <TouchableOpacity
           style={{ 
-            backgroundColor: this.props.chosen? '#c45959' : '#ffffff',
-            width: '100%', borderColor: '#949494', borderWidth: 1, borderLeftWidth: .5, borderRightWidth: .5, borderTopWidth: 0, justifyContent: 'center', alignItems: 'center' }}
+            borderRadius:10,
+            backgroundColor: this.props.chosen? Constants.mainColor : '#ffffff',
+            width: '100%', borderColor: Constants.mainColor , borderWidth: 1, borderLeftWidth:(this.props.label =='Meal')? 1:0, borderRightWidth:(this.props.label =='Meal')? 1:0, borderRightColor:(this.props.chosen)?'#ffffff': Constants.mainColor,borderLeftColor:(this.props.chosen)?'#ffffff':Constants.mainColor, justifyContent: 'center', alignItems: 'center' }}
           onPress={() => this.setState({ visibleModal: 'bottom' })}
         >
-          <Text style={{fontSize: 17*PixelRatio.getFontScale(), color: this.props.chosen? '#ffffff' : '#c45959',padding:5 }}>{this.props.label}</Text>
+          <Text style={{fontSize: 17*PixelRatio.getFontScale(), color: this.props.chosen? '#ffffff' : Constants.mainColor ,padding:5 }}>{this.props.label}</Text>
         </TouchableOpacity>
         <Modal
           onBackdropPress={this.onClose}
@@ -71,10 +73,12 @@ export default class SearchFilters extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    paddingLeft:'1%',
+    paddingRight:'1%',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#c45959',
+    backgroundColor: '#ffffff',
 
   },
   content: {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { InteractionManager, View, TouchableHighlight, FlatList, PixelRatio } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { Entypo, AntDesign } from '@expo/vector-icons';
+import * as Constants from './Constants.js'
 
 export default function SearchFilterItems(props) {
 
@@ -51,7 +52,7 @@ export default function SearchFilterItems(props) {
 
               selected.includes(item) ?
 
-                <AntDesign name={'checkcircle'} size={18 * ratio} color={'#c45959'} />
+                <AntDesign name={'checkcircle'} size={18 * ratio} color={Constants.mainColor} />
                 :
                 null
             }
@@ -73,7 +74,7 @@ export default function SearchFilterItems(props) {
           onPress={() => {changeSelection([]);}}
         >
           <ListItem title={'Clear'}
-          titleStyle ={{fontSize:18*ratio, color: "#c45959"}}
+          titleStyle ={{fontSize:18*ratio, color: Constants.mainColor}}
           contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
 
           />
@@ -100,7 +101,7 @@ export default function SearchFilterItems(props) {
           onPress={() => {props.close(); props.passSelected(selected); }}
         >
           <ListItem title={'Go'}
-          titleStyle ={{fontSize:18*ratio, color: "#c45959"}}
+          titleStyle ={{fontSize:18*ratio, color: Constants.mainColor}}
           contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
 
           />

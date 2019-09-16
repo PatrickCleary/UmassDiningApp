@@ -2,6 +2,8 @@ import React from 'react';
 import {View, TouchableOpacity, Image, AsyncStorage, PixelRatio} from 'react-native';
 import {ListItem} from 'react-native-elements';
 import { Entypo } from '@expo/vector-icons';
+import * as Constants from './Constants'
+
 
 const ratio = PixelRatio.getFontScale();
 const fs = ratio*25;
@@ -27,7 +29,7 @@ class FavoritesListItems extends React.Component {
         <ListItem 
             rightAvatar = {
               <TouchableOpacity onPress = {()=>this.props.displayOptions(this.props.item)} style = {{width : '15%',  justifyContent: 'center', alignItems: 'center'}}>
-              <Entypo name = {'dots-three-horizontal'} size = {fsheart} color = {'#c45959'}/>
+              <Entypo name = {'dots-three-horizontal'} size = {fsheart} color = {Constants.mainColor}/>
               </TouchableOpacity>
             }
             
