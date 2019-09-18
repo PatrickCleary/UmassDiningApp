@@ -56,7 +56,7 @@ export default function Search(props) {
 
                 <SearchFilters selected={props.hallFilter} options={hallArray} passSelected={(selected) => props.passSelectedHalls(selected)} label={"Hall"} chosen = {props.hallChosen}/>
                 <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen = {props.mealChosen} />
-                <SearchFilters selected={categoryFilter} options={categoryArray} check ={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen = {props.categoryChosen}/>
+                <SearchFilters selected={categoryFilter}  allCategories={props.allCategories} options={categoryArray} check ={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen = {props.categoryChosen}/>
             </View>
 
 

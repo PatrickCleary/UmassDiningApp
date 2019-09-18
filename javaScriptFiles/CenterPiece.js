@@ -9,8 +9,7 @@ import { getCorrectDate, fixString } from './helperFunctions';
 
 
 var objectMinusCategoryFilters = [];
-var categories = []
-
+var todaysCategories = [];
 //getMenu useEffecty
 async function favChange(boolean, foodName) {
     const oldFaves = await AsyncStorage.getItem('favoritesArray');
@@ -84,9 +83,8 @@ async function saveData(todaysMenu) {
 
 export default function CenterPiece(props) {
 
-
-function getCategories(){
-    if(objectMinusCategoryFilters.length === 0){
+function getCategories(all){
+    if(objectMinusCategoryFilters.length === 0 || all == true){
         let categorySet = new Set([]);
         for(let x = 0; x< todaysMenu.length; x++){
             categorySet.add(todaysMenu[x].category);
@@ -246,8 +244,8 @@ function getCategories(){
                 hallFilter = {hallFilter}
                 mealFilter = {mealFilter}
                 categoryLabel={(categoryFilter.length < 1 || categoryFilter.length > 4) ? 'Select Category' : categoryFilter.toString()}
-                categoriesProp = {getCategories()}
-
+                categoriesProp = {getCategories(false)}
+                allCategories = {getCategories(true)}
                 //function to open nutrition facts.
                 onFoodPress={(foodName, favorite) => onFoodPress(foodName, favorite)}
 

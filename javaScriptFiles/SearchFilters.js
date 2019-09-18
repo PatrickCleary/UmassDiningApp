@@ -30,15 +30,20 @@ export default class SearchFilters extends React.Component {
   render() {
 
     return (
-      <View style={styles.container}>
+      <View style = {{padding:'2%', flex:1, borderBottomWidth:1, borderBottomColor: Constants.mainColor}}>
+      <View style={{
+        justifyContent: 'center',
+        alignItems: 'center', borderRadius: 10, borderWidth:1 ,
+        backgroundColor: this.props.chosen? Constants.mainColor : '#ffffff',
+        borderColor: Constants.mainColor
+       }}>
     
   
 
         <TouchableOpacity
           style={{ 
-            borderRadius:10,
-            backgroundColor: this.props.chosen? Constants.mainColor : '#ffffff',
-            width: '100%', borderColor: Constants.mainColor , borderWidth: 1, borderLeftWidth:(this.props.label =='Meal')? 1:0, borderRightWidth:(this.props.label =='Meal')? 1:0, borderRightColor:(this.props.chosen)?'#ffffff': Constants.mainColor,borderLeftColor:(this.props.chosen)?'#ffffff':Constants.mainColor, justifyContent: 'center', alignItems: 'center' }}
+            
+            width: '100%', justifyContent: 'center', alignItems: 'center' }}
           onPress={() => this.setState({ visibleModal: 'bottom' })}
         >
           <Text style={{fontSize: 17*PixelRatio.getFontScale(), color: this.props.chosen? '#ffffff' : Constants.mainColor ,padding:5 }}>{this.props.label}</Text>
@@ -53,12 +58,13 @@ export default class SearchFilters extends React.Component {
         >
          {
            (this.props.check==='cat')?
-                <SearchFilterItemsCategory holdSelection = {(selection)=>{this.setState({selection2:selection});}} options={this.props.options} selected={this.props.selected} close = {this.onClose} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
+                <SearchFilterItemsCategory allCategories = {this.props.allCategories} holdSelection = {(selection)=>{this.setState({selection2:selection});}} options={this.props.options} selected={this.props.selected} close = {this.onClose} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
                   :
               <SearchFilterItems holdSelection = {(selection)=>{this.setState({selection2:selection});}} options={this.props.options} selected={this.props.selected} close = {this.onClose} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
          }
         </Modal>
 
+      </View>
       </View>
 
 
@@ -73,11 +79,6 @@ export default class SearchFilters extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingLeft:'1%',
-    paddingRight:'1%',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#ffffff',
 
   },

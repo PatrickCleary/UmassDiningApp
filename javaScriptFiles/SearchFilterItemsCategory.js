@@ -5,41 +5,15 @@ import { AntDesign } from '@expo/vector-icons';
 import * as Constants from './Constants';
 
 //make this dynamic
-const allCategories = ["Breads",
-"Breakfast Pastries",
-"Breakfast Entrees",
-"Deli Bar",
-"Desserts",
-"Entrees",
-"Express",
-"Gluten Free",
-"Grab n'Go Cold Lunch",
-"International",
-"Grill Station",
-"Latino",
-"Lunch/Dinner Miscellaneous",
-"Grab n'Go Hot Lunch",
-"Late Night Special",
-"Noodle Bowl",
-"North Display Worcester",
-"Pasta Bar",
-"Soups",
-"Salad Bar/Dressings",
-"Pizza",
-"South Display Worcester",
-"Starches",
-"Vegetarian Line",
-"Street Food",
-"Vegetables",
-"Sushi",
-]
 
 export default function SearchFilterItemsCategory(props) {
-
+  
+  const allCategories = props.allCategories;
+  
   const ratio = PixelRatio.getFontScale();
   [selected, changeSelected] = useState(props.selected);
-
-
+  
+  
   
   changeSelection = (selection)=>{
     changeSelected(selection);
