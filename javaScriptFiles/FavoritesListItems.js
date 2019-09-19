@@ -36,7 +36,7 @@ class FavoritesListItems extends React.Component {
             titleProps = {{numberOfLines:1}}
             title = {this.props.item} 
             titleStyle = {{fontSize:fstitle}}
-            subtitleStyle = {{color: 'grey', fssubtitle}}
+            subtitleStyle = {{color: 'grey', fontSize:fssubtitle}}
             containerStyle = {{backgroundColor: this.props.where.length ? '#ffffff': '#ededed' }}
             subtitle = {this.props.where.length ? this.props.where : 'unavailable'} 
         /></TouchableOpacity>
