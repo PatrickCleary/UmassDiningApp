@@ -1,10 +1,7 @@
 {
-  "expoServerNgrokUrl": "https://39-anu.anonymous.awesomeproject.exp.direct",
-  "packagerNgrokUrl": "https://packager.39-anu.anonymous.awesomeproject.exp.direct",
-  "ngrokPid": 11108,
-  "expoServerPort": 19000,
-  "devToolsPort": 19002,
-  "packagerPort": 19001,
-  "packagerPid": 7996,
-  "webpackServerPort": null
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

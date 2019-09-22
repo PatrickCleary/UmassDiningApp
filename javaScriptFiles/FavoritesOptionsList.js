@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableHighlight, FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
-import { Entypo, AntDesign } from '@expo/vector-icons';
 import * as Constants from './Constants'
 
 export default function SearchFilterItems(props) {
