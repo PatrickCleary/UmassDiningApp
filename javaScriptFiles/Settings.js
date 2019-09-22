@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput, Button, ActivityIndicator, PixelRatio } from 'react-native';
+import { Text, View, TextInput, Button, ActivityIndicator, PixelRatio, Linking } from 'react-native';
 import { getCorrectDate } from './helperFunctions';
 import * as Constants from './Constants';
 
@@ -28,8 +28,8 @@ export default function Settings(props) {
 
 
   return (
-    <View style={{ flex: 12, justifyContent:'space-evenly' }}>
-      <View style={{ paddingTop: '5%', flex: 1, justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 12, justifyContent:'space-between' }}>
+      <View style={{ paddingTop: '5%', flex: 1.2, justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
         <Text style = {headerText}>Menu:</Text>
         <Text></Text>
         <Text style={styleText}>Menu Date: {fixDates(props.menuDate)}</Text>
@@ -43,7 +43,7 @@ export default function Settings(props) {
               <ActivityIndicator size='large' color={Constants.mainColor} />
               :
               loadingMenu[1] ?
-                <Text style={styleText}>Menu updated.</Text>
+                <Text >Menu updated.</Text>
                 :
                 <View style={{ flex: 1 }} />
           }
@@ -52,27 +52,28 @@ export default function Settings(props) {
       <View style={{ flex: 1, paddingLeft: '5%', paddingRight: '5%' }}>
         <View style={{ alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
 
-          <Text style={headerText}>Planned Features: </Text>
-        </View>
-        <Text style={styleText}></Text>
-        <Text style={styleText}>- Notifications</Text>
-        <Text style={styleText}>- Hours of operation</Text>
-        <Text style={styleText}>- Menus for upcoming days</Text>
-        <Text style={styleText}>- Filters based on allergen/nutrition info</Text>
-        <Text style={styleText}></Text>
-        <Text style={styleText}></Text>
+        <Text style={headerText}>Umass Dining:</Text>
+        <Button color = {Constants.mainColor} onPress={() => Linking.openURL('https://umassdining.com/locations-menus') }
+      title="https://umassdining.com/locations-menus" />
 
-        <Text style={styleText}></Text>
+
+        </View>
       </View>
         <View style={{flex:1, padding: '5%', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
           <Text style={headerText}>Suggestions? Questions?</Text>
           
           <Text style = {headerText}> Contact me:</Text>
-          <TextInput editable={false} multiline={true} style={{ fontSize: 17 * fs }}>patcleary11@gmail.com</TextInput>
+          <Button color = {Constants.mainColor} onPress={() => Linking.openURL('mailto:patcleary11@gmail.com') }
+      title="patcleary11@gmail.com" />
         </View>
 
+
+
         <View style={{flex:.5, alignItems:'center', alignContent:'center', justifyContent:'center'}}>
-        <TextInput style={{fontSize:17*fs}} editable={false} multiline={true}>App Icon by freepik: "https://www.flaticon.com/authors/freepik" </TextInput>
+        <Text style={{fontSize:17*fs}} >App Icon by MapBox: </Text>
+        <Button color= {Constants.mainColor} title = "https://www.iconfinder.com/iconsets/maki" onPress = {()=>console.log(Linking.openURL('https://www.iconfinder.com/iconsets/maki'))}></Button>
+        <Text>Copyright© 2012, MapBox, LLC. All rights reserved.</Text>
+        <Text> </Text>
       </View>
     </View>
 

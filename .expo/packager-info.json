@@ -1,10 +1,10 @@
 {
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
-  "expoServerPort": null,
+  "expoServerNgrokUrl": "https://39-anu.anonymous.awesomeproject.exp.direct",
+  "packagerNgrokUrl": "https://packager.39-anu.anonymous.awesomeproject.exp.direct",
+  "ngrokPid": 11108,
+  "expoServerPort": 19000,
   "devToolsPort": 19002,
-  "packagerPort": null,
-  "packagerPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 7996,
   "webpackServerPort": null
 }

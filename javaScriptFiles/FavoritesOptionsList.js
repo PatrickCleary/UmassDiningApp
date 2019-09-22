@@ -50,21 +50,6 @@ export default function SearchFilterItems(props) {
         </TouchableHighlight>
       </View>
      
-      {renderSeparator()}
-
-      <View style={{ width: '100%', }}>
-        <TouchableHighlight
-          underlayColor='grey'
-          actiiveOpacity={1}
-          onPress={() => {}}
-        >
-          <ListItem 
-          contentContainerStyle ={{justifyContent:'center', alignItems:'center'}}
-          title={'Create Notification (Coming Soon)'}
-          titleStyle = {{ color: '#bababa'} }  
-          />
-        </TouchableHighlight>
-      </View>
     </View>
   );
 

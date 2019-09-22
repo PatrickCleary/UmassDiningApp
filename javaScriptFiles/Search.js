@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, AsyncStorage, ActivityIndicator, Button } from 'react-native';
+import React, { } from 'react';
+import { View, } from 'react-native';
 import { SearchBar, Icon } from 'react-native-elements'
 import FoodList from './FoodList';
 import Modal from 'react-native-modal';
@@ -14,20 +14,13 @@ import * as Constants from './Constants'
     maybe stop using ()=>??? idk bruh
 */
 
-
-
-
-
-
 //search page function
 export default function Search(props) {
-
-
 
     let mealArray = ['Breakfast', 'Lunch', 'Dinner', 'Late Night', 'Grab And Go'];
     let hallArray = ['Berkshire', 'Hampshire', 'Franklin', 'Worcester'];
     let categoryArray = props.categoriesProp;
-    //querySQL 
+    
     //render Search page
     return (
         <View style={{ flex: 12 }}>
@@ -48,17 +41,13 @@ export default function Search(props) {
                     favorite={props.modalInfo.modalFav}
                 />
             </Modal>
-                
-            <SearchBar returnKeyType='search' inputContainerStyle = {{backgroundColor: '#ffffff'}} searchIcon = {style = {color:Constants.mainColor}} cancelButtonProps ={buttonStyle = {color:'#ffffff'}} containerStyle = {{backgroundColor:Constants.mainColor }} autoCorrect= {false} platform='ios' lightTheme={true} placeholder="Search Today's Menu" onChangeText={(text) => { props.onChangeText(text) }} value={props.searchTerm} ></SearchBar>
+
+            <SearchBar returnKeyType='search' inputContainerStyle={{ backgroundColor: '#ffffff' }} searchIcon={style = { color: Constants.mainColor }} cancelButtonProps={buttonStyle = { color: '#ffffff' }} containerStyle={{ backgroundColor: Constants.mainColor }} autoCorrect={false} platform='ios' lightTheme={true} placeholder="Search Today's Menu" onChangeText={(text) => { props.onChangeText(text) }} value={props.searchTerm} ></SearchBar>
             <View style={{ flexDirection: 'row' }}>
-                
-
-
-                <SearchFilters selected={props.hallFilter} options={hallArray} passSelected={(selected) => props.passSelectedHalls(selected)} label={"Hall"} chosen = {props.hallChosen}/>
-                <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen = {props.mealChosen} />
-                <SearchFilters selected={categoryFilter}  allCategories={props.allCategories} options={categoryArray} check ={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen = {props.categoryChosen}/>
+                <SearchFilters selected={props.hallFilter} options={hallArray} passSelected={(selected) => props.passSelectedHalls(selected)} label={"Hall"} chosen={props.hallChosen} />
+                <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen={props.mealChosen} />
+                <SearchFilters selected={categoryFilter} allCategories={props.allCategories} options={categoryArray} check={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen={props.categoryChosen} />
             </View>
-
 
             <FoodList
                 onFoodPress={(foodName, favorite) => props.onFoodPress(foodName, favorite)}

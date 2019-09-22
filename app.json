@@ -5,17 +5,15 @@
     "privacy": "unlisted",
     "sdkVersion": "33.0.0",
     "platforms": [
-      "ios",
-      "android",
-      "web"
+      "ios"
     ],
-    "description": "Amherst Eats was defined to be used by Umass Amherst students to find out what's available at their favorite dining hall. You can add dishes to your favorites page and check in to see if they are available anywhere.",
+    "description": "Amherst Eats was designed to be used by Umass Amherst students to find out what's available at their favorite dining hall. You can add dishes to your favorites page and check in to see if they are available anywhere.",
     "version": "1.0.0",
     "orientation": "portrait",
     "owner":"Patrick Cleary",
-    "icon": "./assets/fork.png",
+    "icon": "./assets/burger.png",
     "splash": {
-      "image": "./assets/fork.png",
+      "image": "./assets/burger.png",
       "resizeMode" : "contain",
       "backgroundColor": "#ffffff"
     },

@@ -54,15 +54,16 @@ export default function SearchFilterItemsCategory(props) {
           actiiveOpacity={1}
           onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelection(selectedOptions); } else { selectedOptions = selected.concat([item]); changeSelection(selected.concat([item]));  } }}
         >
-          <ListItem title={item}
+          <ListItem 
+            title={item}
             titleProps={{ numberOfLines: 1 }}
-            titleStyle = {{fontSize: 14*ratio}}
-            containerStyle={{backgroundColor: option? '#ffffff' : '#ededed'}}
+            titleStyle = {{fontSize: 18*ratio,  paddingTop:0}}
+            containerStyle={{ padding:'5%', alignItems:'center', justifyContent:'center',paddingTop:'5%', paddingBottom:'5%',alignContent:'center', justifyContent:'center', backgroundColor: option? '#ffffff' : '#ededed'}}
             rightAvatar={
 
               selected.includes(item) ?
 
-                <AntDesign name={'checkcircle'} size={14 * ratio} color={Constants.mainColor} />
+                <AntDesign name={'checkcircle'} size={18 * ratio} color={Constants.mainColor} />
 
                 :
                 null
