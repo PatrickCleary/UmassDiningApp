@@ -106,6 +106,7 @@ function getCategories(all){
 
 
     function updateSearch(jsonFood, searchTerm, hallFilter, mealFilter, categoryFilter) {
+
         return new Promise(function (resolve, reject) {
 
             updateSearchTerm(searchTerm);

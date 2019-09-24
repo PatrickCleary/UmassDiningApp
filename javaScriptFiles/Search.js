@@ -17,7 +17,8 @@ import * as Constants from './Constants'
 //search page function
 export default function Search(props) {
 
-    let mealArray = ['Breakfast', 'Lunch', 'Dinner', 'Late Night', 'Grab And Go'];
+    let dayOfWeek = new Date().getDay()
+    let mealArray = (dayOfWeek==0 || dayOfWeek==6)?  [ 'Brunch', 'Dinner', 'Late Night', 'Grab And Go']:['Breakfast', 'Lunch', 'Dinner', 'Late Night', 'Grab And Go'];
     let hallArray = ['Berkshire', 'Hampshire', 'Franklin', 'Worcester'];
     let categoryArray = props.categoriesProp;
     
