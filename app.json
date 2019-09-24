@@ -7,10 +7,13 @@
     "platforms": [
       "ios"
     ],
+    "ios": {
+      "bundleIdentifier": "pdc.AmherstEats"
+    },
     "description": "Amherst Eats was designed to be used by Umass Amherst students to find out what's available at their favorite dining hall. You can add dishes to your favorites page and check in to see if they are available anywhere.",
     "version": "1.0.0",
     "orientation": "portrait",
-    "owner":"Patrick Cleary",
+    "owner":"patcleary11",
     "icon": "./assets/burger.png",
     "splash": {
       "image": "./assets/burger.png",
@@ -22,9 +25,6 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
+    ]
   }
 }
