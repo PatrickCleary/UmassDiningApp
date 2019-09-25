@@ -41,7 +41,6 @@ export default class FoodList extends React.PureComponent {
   _renderItem = ({ item, index }) => {
 
     let categoryChange = true;
-    console.log(index + item.category)
     if(index>0){
     if(item.category===this.props.jsonFood[index-1].category){
       categoryChange = false;
