@@ -52,7 +52,7 @@ class FoodListItem extends React.Component {
 
         {this.props.categoryChange?
           <View style = {{justifyContent:'center', alignItems:'center', backgroundColor:'#ffffff'}}>
-          <Text style = {{flex:1, fontSize:fs, fontFamily:'Copperplate', color:'#383838'}}>{this.props.item.category}</Text>
+          <Text style = {{flex:1, fontSize:fs, textDecorationLine: 'underline', fontFamily:'Copperplate', color:'#383838'}}>{this.props.item.category}</Text>
           </View>
         :
             null

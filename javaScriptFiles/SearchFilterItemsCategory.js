@@ -86,7 +86,7 @@ export default function SearchFilterItemsCategory(props) {
           onPress={() => { changeSelection([]); }}
         >
           <ListItem title={'Clear'}
-            titleStyle={{ fontSize: 18 * ratio, color: Constants.mainColor }}
+            titleStyle={{ fontSize: 18 * ratio, fontWeight:'bold', color: Constants.mainColor }}
             contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 
           />
@@ -114,7 +114,7 @@ export default function SearchFilterItemsCategory(props) {
           onPress={() => { props.close(); props.passSelected(selected); }}
         >
           <ListItem title={'Go'}
-            titleStyle={{ fontSize: 18 * ratio, color: Constants.mainColor }}
+            titleStyle={{ fontSize: 18 * ratio, fontWeight: 'bold', color: Constants.mainColor }}
             contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 
           />

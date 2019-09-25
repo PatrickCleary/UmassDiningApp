@@ -1,9 +1,9 @@
 {
-  "packagerPort": 19001,
-  "packagerPid": 18108,
-  "expoServerNgrokUrl": "https://39-anu.patcleary11.awesomeproject.exp.direct",
-  "packagerNgrokUrl": "https://packager.39-anu.patcleary11.awesomeproject.exp.direct",
-  "ngrokPid": 14528,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "devToolsPort": 19002,
-  "expoServerPort": 19000
+  "expoServerPort": null
 }

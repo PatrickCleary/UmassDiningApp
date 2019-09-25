@@ -98,7 +98,6 @@ function getCategories(all){
 
     function updateSearch(jsonFood, searchTerm, hallFilter, mealFilter, categoryFilter) {
 
-        return new Promise(function (resolve, reject) {
 
             updateSearchTerm(searchTerm);
 
@@ -115,24 +114,13 @@ function getCategories(all){
             const category = meals.filter((foodObj) => (categoryFilter.length ? categoryFilter.includes(foodObj.category) : true));
             
 
-            
-
             updateSearchObject(category);
 
 
 
-
-            resolve(true);
-        });
-
     }
 
 
-    async function updateSearchWait(jsonFood, searchTerm, hallFilter, mealFilter, categoryFilter) {
-        setLoading(true);
-        await updateSearch(jsonFood, searchTerm, hallFilter, mealFilter, categoryFilter);
-        setLoading(false);
-    }
 
     function onFoodPress(foodName, favorite) {
 
@@ -218,7 +206,7 @@ function getCategories(all){
                 style={{ flex: 9 }}
 
                 //search term and when it is updated
-                onChangeText={(text) => {updateSearchWait(todaysMenu, text, hallFilter, mealFilter, categoryFilter); }}
+                onChangeText={(text) => {updateSearch(todaysMenu, text, hallFilter, mealFilter, categoryFilter); }}
                 searchTerm={searchTerm}
 
                 //modal info and functions:
@@ -227,9 +215,10 @@ function getCategories(all){
                 modalInfo={modal}
 
                 //filters for meals, halls and their labels.
-                passSelectedHalls={(selected) => { updateSearchWait(todaysMenu, searchTerm, selected, mealFilter, categoryFilter); changeHallFilter(selected); }}
-                passSelectedMeals={(selected) => { updateSearchWait(todaysMenu, searchTerm, hallFilter, selected, categoryFilter); changeMealFilter(selected); }}
-                passSelectedCategories={(selected) => { updateSearchWait(todaysMenu, searchTerm, hallFilter, mealFilter, selected); changeCategoryFilter(selected); }}
+                passSelectedHalls={(selected) => { updateSearch(todaysMenu, searchTerm, selected, mealFilter, categoryFilter); changeHallFilter(selected); }}
+                passSelectedMeals={(selected) => { updateSearch(todaysMenu, searchTerm, hallFilter, selected, categoryFilter); changeMealFilter(selected); }}
+                passSelectedCategories={(selected) => { updateSearch(todaysMenu, searchTerm, hallFilter, mealFilter, selected); changeCategoryFilter(selected); }}
+                clearFilters ={()=>{changeHallFilter([]);changeMealFilter([]); changeCategoryFilter([]); updateSearch(todaysMenu, searchTerm, [], [], [])}}
                 hallChosen={hallFilter.length>0 }
                 mealChosen={(mealFilter.length> 0)}
                 categoryChosen = {(categoryFilter.length>0)}

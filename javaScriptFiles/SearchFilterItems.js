@@ -41,7 +41,7 @@ export default function SearchFilterItems(props) {
     return (
       <View style={{ width: '100%', }}>
         <TouchableHighlight
-          underlayColor='grey'
+          underlayColor={Constants.mainColor}
           actiiveOpacity={1}
           onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelection(selectedOptions); } else { selectedOptions = selected.concat([item]); changeSelection(selected.concat([item]));  } }}
         >
@@ -69,12 +69,12 @@ export default function SearchFilterItems(props) {
       <View style={{ width: '100%', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
         <TouchableHighlight
         style = {{width:'100%'}}
-          underlayColor='grey'
+          underlayColor={Constants.mainColor}
           actiiveOpacity={1}
           onPress={() => {changeSelection([]);}}
         >
           <ListItem title={'Clear'}
-          titleStyle ={{fontSize:18*ratio, color: Constants.mainColor}}
+          titleStyle ={{fontSize:18*ratio, fontWeight:'bold', color: Constants.mainColor}}
           contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
 
           />
@@ -96,12 +96,12 @@ export default function SearchFilterItems(props) {
 <View style={{ width: '100%', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
         <TouchableHighlight
         style = {{width:'100%'}}
-          underlayColor='grey'
+          underlayColor={Constants.mainColor}
           actiiveOpacity={1}
           onPress={() => {props.close(); props.passSelected(selected); }}
         >
           <ListItem title={'Go'}
-          titleStyle ={{fontSize:18*ratio, color: Constants.mainColor}}
+          titleStyle ={{fontSize:18*ratio, fontWeight:'bold',color: Constants.mainColor}}
           contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
 
           />

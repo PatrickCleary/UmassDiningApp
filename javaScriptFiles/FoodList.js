@@ -4,12 +4,17 @@ import FoodListItem from './FoodListItem';
 import * as Constants from './Constants'
 
 
-let currentCategory = 'none';
 
 
 export default class FoodList extends React.PureComponent {
 
   
+  componentDidUpdate(){ let wait = new Promise((resolve) => setTimeout(resolve, 1));
+    wait.then( () => {
+      this.flatListRef.scrollToIndex({index: 0, animated: true});
+    });
+  }
+
   //seperates items in list
   renderSeparator = () => {
     return (
@@ -36,6 +41,7 @@ export default class FoodList extends React.PureComponent {
   _renderItem = ({ item, index }) => {
 
     let categoryChange = true;
+    console.log(index + item.category)
     if(index>0){
     if(item.category===this.props.jsonFood[index-1].category){
       categoryChange = false;
@@ -67,6 +73,7 @@ export default class FoodList extends React.PureComponent {
         <View style={{ flex: 1 }}>
               <FlatList
                 //ListHeaderComponent ={this.renderHeader}
+                ref={(ref) => { this.flatListRef = ref; }}
                 removeClippedSubviews={true}
                 ItemSeparatorComponent={this.renderSeparator}
                 data={this.props.jsonFood}

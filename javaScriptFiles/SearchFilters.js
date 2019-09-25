@@ -30,7 +30,7 @@ export default class SearchFilters extends React.Component {
   render() {
 
     return (
-      <View style = {{padding:'2%', flex:1, borderBottomWidth:1, borderBottomColor: Constants.mainColor}}>
+      <View style = {{paddingRight:'1%', paddingLeft:'1%', paddingBottom:'1%', flex:1}}>
       <View style={{
         justifyContent: 'center',
         alignItems: 'center', borderRadius: 10, borderWidth:1 ,

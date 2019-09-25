@@ -152,6 +152,7 @@ export default function Favorites(props) {
       </View>
       <View style={{ backgroundColor: '#dedede', width: '100%', height: 1 }}></View>
       <View style={{ flex: 10 }}>
+        { props.favArray.length?
         <FlatList
 
           removeClippedSubviews={true}
@@ -161,7 +162,11 @@ export default function Favorites(props) {
           renderItem={_renderItem}
           keyExtractor={(item, index) => item}
 
-        />
+        />:
+        <View style = {{alignItems:'center'}}>
+        <Text>No Favorites.</Text>
+        </View>
+        }
       </View>
     </View>
 

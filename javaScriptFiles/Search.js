@@ -1,5 +1,5 @@
 import React, { } from 'react';
-import { View, } from 'react-native';
+import { View, TouchableOpacity, Text} from 'react-native';
 import { SearchBar, Icon } from 'react-native-elements'
 import FoodList from './FoodList';
 import Modal from 'react-native-modal';
@@ -49,7 +49,13 @@ export default function Search(props) {
                 <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen={props.mealChosen} />
                 <SearchFilters selected={categoryFilter} allCategories={props.allCategories} options={categoryArray} check={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen={props.categoryChosen} />
             </View>
-
+            <View style = {{backgroundColor:Constants.mainColor, flex:.05}}>
+            <TouchableOpacity underlayColor = {'#ffffff'} style = {{color:'#ffffff'}}  title = {'Clear Filters'} onPress = {()=>{props.clearFilters()}}>
+            <View style = {{justifyContent:'center', alignContent:'center', alignItems:'center'}}>
+            <Text style= {{color:'#ffffff'}}>Clear Filters</Text>
+            </View>
+            </TouchableOpacity>
+            </View>
             <FoodList
                 onFoodPress={(foodName, favorite) => props.onFoodPress(foodName, favorite)}
                 jsonFood={props.searchObject}
