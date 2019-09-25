@@ -8,24 +8,10 @@ Text.defaultProps.allowFontScaling = false;
 export default function App() {
 
   [page, setPage] = useState(1); 
-  let bgcolor = '#ffffff'
-  switch(page){
-    case(1): 
-    bgcolor = Constants.mainColor;
-    break;
-    case(2):
-    bgcolor = "#f0f0f0";
-    break;
-    case(3):
-    bgcolor = "#ffffff";
-    break;
-    default :
-    bgcolor = '#000000'
-    break;
-  }
+  
 
   return (
-  <SafeAreaView style = {{flex:1, backgroundColor:bgcolor}}>
+  <SafeAreaView style = {{flex:1, backgroundColor:Constants.mainColor}}>
   <View style={{flex:1}}>
         
     

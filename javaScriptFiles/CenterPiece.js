@@ -9,7 +9,6 @@ import { getCorrectDate, fixString } from './helperFunctions';
 
 
 var objectMinusCategoryFilters = [];
-var todaysCategories = [];
 //getMenu useEffecty
 async function favChange(boolean, foodName) {
     const oldFaves = await AsyncStorage.getItem('favoritesArray');
@@ -18,15 +17,7 @@ async function favChange(boolean, foodName) {
     if (boolean) {
         if (!favsArray) {
             favsArray = [];
-        }/*
-            for (let x = 0; x < favsArray.length; x++) {
-                if (favsArray[x] > foodName) {
-                    favsArray.splice(x, 0, foodName);
-                    break;
-                }
-                if(x=== favsArray.length-1)
-                favsArray.push(foodName);
-            }*/
+        }
             favsArray.push(foodName);
             favsArray.sort();
         

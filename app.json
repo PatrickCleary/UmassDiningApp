@@ -16,7 +16,7 @@
     "owner":"patcleary11",
     "icon": "./assets/burger.png",
     "splash": {
-      "image": "./assets/burger.png",
+      "image": "./assets/burgerSplash.png",
       "resizeMode" : "contain",
       "backgroundColor": "#ffffff"
     },

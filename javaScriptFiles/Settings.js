@@ -29,6 +29,16 @@ export default function Settings(props) {
 
   return (
     <View style={{ flex: 12, justifyContent:'space-between' }}>
+
+<View style={{ backgroundColor: Constants.mainColor, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
+
+          <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center', alignContent: 'center', }}>
+            <Text style={{ color: 'white', fontFamily: 'Copperplate', fontSize: 40 * PixelRatio.getFontScale(), paddingBottom:'3%'  }}>{'Information'}</Text>
+          </View>
+       
+        </View>
+      </View>
       <View style={{ paddingTop: '5%', flex: 1.2, justifyContent: 'center', alignContent: 'center', alignItems: 'center' }}>
         <Text style = {headerText}>Menu:</Text>
         <Text></Text>
@@ -59,8 +69,7 @@ export default function Settings(props) {
 
         </View>
       </View>
-        <View style={{flex:1, padding: '5%', alignContent: 'center', justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={headerText}>Suggestions? Questions?</Text>
+        <View style={{flex:1, padding: '5%', justifyContent: 'center', alignItems: 'center', alignContent:'center' }}>
           
           <Text style = {headerText}> Contact me:</Text>
           <Button color = {Constants.mainColor} onPress={() => Linking.openURL('mailto:patcleary11@gmail.com') }

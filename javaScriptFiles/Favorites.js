@@ -133,20 +133,20 @@ export default function Favorites(props) {
       </Modal>
 
 
-      <View style={{ backgroundColor: '#f0f0f0', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ backgroundColor: Constants.mainColor, justifyContent: 'center', alignItems: 'center' }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
 
           <TouchableOpacity style={{ flex: 1, paddingLeft: '3%' }} onPress={() => { }}>
           </TouchableOpacity>
-          <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center', alignContent: 'center' }}>
-            <Text style={{ color: 'black', fontFamily: 'Copperplate', fontSize: 35 * PixelRatio.getFontScale() }}>{'Favorites'}</Text>
+          <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center', alignContent: 'center', }}>
+            <Text style={{ color: 'white', fontFamily: 'Copperplate', fontSize: 40 * PixelRatio.getFontScale(), paddingBottom:'3%'  }}>{'Favorites'}</Text>
           </View>
-          <TouchableOpacity style={{ flex: 1, paddingRight: '3%', }}
+          <TouchableOpacity style={{ flex: 1, paddingRight: '3%', paddingBottom:'3%' }}
             onPress={() => Alert.alert(
               'Remove All Favorites?', '',
               [{ text: 'Yes', onPress: async function () { await AsyncStorage.removeItem('favoritesArray'); props.favClear() }, style: 'cancel' },
               { text: 'Cancel' }])}>
-            <FontAwesome name={'trash'} size={34 * PixelRatio.getFontScale()} color={Constants.mainColor} />
+            <FontAwesome name={'trash'} size={34 * PixelRatio.getFontScale()} color={'#ffffff'} />
           </TouchableOpacity>
         </View>
       </View>

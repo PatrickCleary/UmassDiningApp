@@ -44,7 +44,7 @@ export default function Search(props) {
             </Modal>
 
             <SearchBar returnKeyType='search' inputContainerStyle={{ backgroundColor: '#ffffff' }} searchIcon={style = { color: Constants.mainColor }} cancelButtonProps={buttonStyle = { color: '#ffffff' }} containerStyle={{ backgroundColor: Constants.mainColor }} autoCorrect={false} platform='ios' lightTheme={true} placeholder="Search Today's Menu" onChangeText={(text) => { props.onChangeText(text) }} value={props.searchTerm} ></SearchBar>
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ flexDirection: 'row', backgroundColor:Constants.mainColor }}>
                 <SearchFilters selected={props.hallFilter} options={hallArray} passSelected={(selected) => props.passSelectedHalls(selected)} label={"Hall"} chosen={props.hallChosen} />
                 <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen={props.mealChosen} />
                 <SearchFilters selected={categoryFilter} allCategories={props.allCategories} options={categoryArray} check={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen={props.categoryChosen} />

@@ -7,15 +7,15 @@ import * as Constants from './Constants';
 //make this dynamic
 
 export default function SearchFilterItemsCategory(props) {
-  
+
   const allCategories = props.allCategories;
-  
+
   const ratio = PixelRatio.getFontScale();
   [selected, changeSelected] = useState(props.selected);
-  
-  
-  
-  changeSelection = (selection)=>{
+
+
+
+  changeSelection = (selection) => {
     changeSelected(selection);
     props.holdSelection(selection);
   }
@@ -25,7 +25,6 @@ export default function SearchFilterItemsCategory(props) {
     return (
       <View
         style={{
-          height: 1,
           width: "100%",
           backgroundColor: "#dedede",
           //marginLeft: ""
@@ -43,22 +42,22 @@ export default function SearchFilterItemsCategory(props) {
 
   renderItem = ({ item }) => {
     let option = true;
-    if(!props.options.includes(item)){
+    if (!props.options.includes(item)) {
       option = false;
-      
+
     }
 
     return (
       <View style={{ flex: .3333333 }}>
         <TouchableHighlight
           actiiveOpacity={1}
-          onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelection(selectedOptions); } else { selectedOptions = selected.concat([item]); changeSelection(selected.concat([item]));  } }}
+          onPress={() => { if (selected.includes(item)) { selectedOptions = selected.filter(name => !(name === item)); changeSelection(selectedOptions); } else { selectedOptions = selected.concat([item]); changeSelection(selected.concat([item])); } }}
         >
-          <ListItem 
+          <ListItem
             title={item}
             titleProps={{ numberOfLines: 1 }}
-            titleStyle = {{fontSize: 18*ratio,  paddingTop:0}}
-            containerStyle={{ padding:'5%', alignItems:'center', justifyContent:'center',paddingTop:'5%', paddingBottom:'5%',alignContent:'center', justifyContent:'center', backgroundColor: option? '#ffffff' : '#ededed'}}
+            titleStyle={{ fontSize: 18 * ratio, paddingTop: 0, alignItems: 'center' }}
+            containerStyle={{ padding: '5%', alignItems: 'center', justifyContent: 'flex start', paddingTop: '5%', paddingBottom: '5%', alignContent: 'center', justifyContent: 'center', backgroundColor: option ? '#ffffff' : '#ededed' }}
             rightAvatar={
 
               selected.includes(item) ?
@@ -78,17 +77,17 @@ export default function SearchFilterItemsCategory(props) {
 
   return (
     <View style >
-      
-      <View style={{ width: '100%', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
+
+      <View style={{ width: '100%', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
         <TouchableHighlight
-        style = {{width:'100%'}}
+          style={{ width: '100%' }}
           underlayColor='grey'
           actiiveOpacity={1}
-          onPress={() => {changeSelection([]);}}
+          onPress={() => { changeSelection([]); }}
         >
           <ListItem title={'Clear'}
-          titleStyle ={{fontSize:18*ratio, color: Constants.mainColor}}
-          contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
+            titleStyle={{ fontSize: 18 * ratio, color: Constants.mainColor }}
+            contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 
           />
         </TouchableHighlight>

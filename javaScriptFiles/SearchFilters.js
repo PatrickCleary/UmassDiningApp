@@ -35,7 +35,7 @@ export default class SearchFilters extends React.Component {
         justifyContent: 'center',
         alignItems: 'center', borderRadius: 10, borderWidth:1 ,
         backgroundColor: this.props.chosen? Constants.mainColor : '#ffffff',
-        borderColor: Constants.mainColor
+        borderColor: this.props.chosen? '#ffffff': Constants.mainColor
        }}>
     
   
