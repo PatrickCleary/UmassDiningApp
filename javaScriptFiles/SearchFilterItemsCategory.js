@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { View, TouchableHighlight, FlatList, PixelRatio } from 'react-native';
+import React, { useState } from 'react';
+import { View, TouchableHighlight, FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
 import * as Constants from './Constants';
@@ -10,7 +10,6 @@ export default function SearchFilterItemsCategory(props) {
 
   const allCategories = props.allCategories;
 
-  const ratio = PixelRatio.getFontScale();
   [selected, changeSelected] = useState(props.selected);
 
 
@@ -56,13 +55,13 @@ export default function SearchFilterItemsCategory(props) {
           <ListItem
             title={item}
             titleProps={{ numberOfLines: 1 }}
-            titleStyle={{ fontSize: 18 * ratio, paddingTop: 0, alignItems: 'center' }}
+            titleStyle={{ fontSize: 18 * Constants.fontMultiplier, paddingTop: 0, alignItems: 'center' }}
             containerStyle={{ padding: '5%', alignItems: 'center', justifyContent: 'flex start', paddingTop: '5%', paddingBottom: '5%', alignContent: 'center', justifyContent: 'center', backgroundColor: option ? '#ffffff' : '#ededed' }}
             rightAvatar={
 
               selected.includes(item) ?
 
-                <AntDesign name={'checkcircle'} size={18 * ratio} color={Constants.mainColor} />
+                <AntDesign name={'checkcircle'} size={18 * Constants.fontMultiplier} color={Constants.mainColor} />
 
                 :
                 null
@@ -86,7 +85,7 @@ export default function SearchFilterItemsCategory(props) {
           onPress={() => { changeSelection([]); }}
         >
           <ListItem title={'Clear'}
-            titleStyle={{ fontSize: 18 * ratio, fontWeight:'bold', color: Constants.mainColor }}
+            titleStyle={{ fontSize: 18 * Constants.fontMultiplier, fontWeight:'bold', color: Constants.mainColor }}
             contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 
           />
@@ -114,7 +113,7 @@ export default function SearchFilterItemsCategory(props) {
           onPress={() => { props.close(); props.passSelected(selected); }}
         >
           <ListItem title={'Go'}
-            titleStyle={{ fontSize: 18 * ratio, fontWeight: 'bold', color: Constants.mainColor }}
+            titleStyle={{ fontSize: 18 * Constants.fontMultiplier, fontWeight: 'bold', color: Constants.mainColor }}
             contentContainerStyle={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
 
           />

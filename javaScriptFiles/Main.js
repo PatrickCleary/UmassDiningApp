@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Text, View, } from 'react-native';
+import React from 'react';
+import {  View, } from 'react-native';
 import ToolBar from './ToolBar';
 import CenterPiece from './CenterPiece';
 

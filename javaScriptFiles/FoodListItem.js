@@ -1,15 +1,14 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, PixelRatio } from 'react-native';
+import { View, TouchableOpacity, Text } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { AntDesign } from '@expo/vector-icons';
 import * as Constants from './Constants'
 
 
-const ratio = PixelRatio.getFontScale();
-const fs = ratio*25;
-const fsheart = ratio*30;
-const fstitle = ratio*17;
-const fssubtitle = ratio*15;
+const fs = Constants.fontMultiplier*25;
+const fsheart = Constants.fontMultiplier*30;
+const fstitle = Constants.fontMultiplier*17;
+const fssubtitle = Constants.fontMultiplier*15;
 
 
 

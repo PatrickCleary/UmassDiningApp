@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, ActivityIndicator, PixelRatio } from 'react-native';
+import { Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Entypo, AntDesign } from '@expo/vector-icons';
-import { isFavorite, fixString } from './helperFunctions';
+import { fixString } from './helperFunctions';
 import * as Constants from './Constants'
 
 
 export default function FoodPage(props) {
 
-    const ratio = PixelRatio.getFontScale();
+    const ratio = Constants.fontMultiplier;
 
     const textStyle = {
         fontSize:20*ratio,

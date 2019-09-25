@@ -1,5 +1,5 @@
 import React, { } from 'react';
-import { View, TouchableOpacity, Text, PixelRatio} from 'react-native';
+import { View, TouchableOpacity, Text} from 'react-native';
 import { SearchBar, Icon } from 'react-native-elements'
 import FoodList from './FoodList';
 import Modal from 'react-native-modal';
@@ -8,7 +8,6 @@ import SearchFilters from './SearchFilters';
 import * as Constants from './Constants'
 
 
-const fs = PixelRatio.getFontScale();
 /*Flat list:
     key extractor must be unique and dont use index because it will rerender when scrolling
     You goootttta use a shouldComponentUpdate because otherwise the stupid thing will rerender every item from the top every single goddamn time.
@@ -53,7 +52,7 @@ export default function Search(props) {
             <View style = {{backgroundColor:Constants.mainColor, flex:.05}}>
             <TouchableOpacity underlayColor = {'#ffffff'} style = {{color:'#ffffff'}}  title = {'Clear Filters'} onPress = {()=>{props.clearFilters()}}>
             <View style = {{justifyContent:'center', alignContent:'center', alignItems:'center'}}>
-            <Text style= {{fontSize: 14*fs,color:'#ffffff'}}>Clear Filters</Text>
+            <Text style= {{fontSize: 18*Constants.fontMultiplier,color:'#ffffff'}}>Clear Filters</Text>
             </View>
             </TouchableOpacity>
             </View>

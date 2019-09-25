@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, TouchableOpacity, Image, AsyncStorage, PixelRatio} from 'react-native';
+import {View, TouchableOpacity,} from 'react-native';
 import {ListItem} from 'react-native-elements';
 import { Entypo } from '@expo/vector-icons';
 import * as Constants from './Constants'
 
 
-const ratio = PixelRatio.getFontScale();
+const ratio = Constants.fontMultiplier;
 const fs = ratio*25;
 const fsheart = ratio*30;
 const fstitle = ratio*17;

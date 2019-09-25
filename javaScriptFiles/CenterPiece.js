@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { AsyncStorage, View } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import Favorites from './Favorites';
 import Settings from './Settings';
 import Search from './Search';

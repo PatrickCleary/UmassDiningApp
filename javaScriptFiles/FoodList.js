@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, FlatList, ActivityIndicator, PixelRatio } from 'react-native';
+import { Text, View, FlatList, ActivityIndicator } from 'react-native';
 import FoodListItem from './FoodListItem';
 import * as Constants from './Constants'
 
@@ -9,11 +9,13 @@ import * as Constants from './Constants'
 export default class FoodList extends React.PureComponent {
 
   
-  componentDidUpdate(){ let wait = new Promise((resolve) => setTimeout(resolve, 1));
+  componentDidUpdate(prevProps){ let wait = new Promise((resolve) => setTimeout(resolve, 1));
+    if(prevProps.jsonFood.length !== this.props.jsonFood.length){
     wait.then( () => {
       this.flatListRef.scrollToIndex({index: 0, animated: true});
     });
   }
+}
 
   //seperates items in list
   renderSeparator = () => {

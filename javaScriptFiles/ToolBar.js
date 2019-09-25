@@ -1,7 +1,6 @@
 import React from 'react';
 import Tools from './Tools'
-import { Text, Alert, View, TouchableOpacity } from 'react-native';
-import Test from './Test';
+import {  View, TouchableOpacity } from 'react-native';
 import * as Constants from './Constants';
 
 export default function ToolBar(props) {

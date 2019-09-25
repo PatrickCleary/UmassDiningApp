@@ -1,5 +1,5 @@
 import React, { useState, } from 'react';
-import { View, AsyncStorage, FlatList, TouchableOpacity, Alert, Text, PixelRatio } from 'react-native';
+import { View, AsyncStorage, FlatList, TouchableOpacity, Alert, Text } from 'react-native';
 import { arrayToString } from './helperFunctions';
 import FavoritesListItems from './FavoritesListItems';
 import FoodPage from './FoodPage.js';
@@ -139,14 +139,14 @@ export default function Favorites(props) {
           <TouchableOpacity style={{ flex: 1, paddingLeft: '3%' }} onPress={() => { }}>
           </TouchableOpacity>
           <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center', alignContent: 'center', }}>
-            <Text style={{ color: 'white', fontFamily: 'Copperplate', fontSize: 40 * PixelRatio.getFontScale(), paddingBottom:'3%'  }}>{'Favorites'}</Text>
+            <Text style={{ color: 'white', fontFamily: 'Copperplate', fontSize: 40 * Constants.fontMultiplier, paddingBottom:'3%'  }}>{'Favorites'}</Text>
           </View>
           <TouchableOpacity style={{ flex: 1, paddingRight: '3%', paddingBottom:'3%' }}
             onPress={() => Alert.alert(
               'Remove All Favorites?', '',
               [{ text: 'Yes', onPress: async function () { await AsyncStorage.removeItem('favoritesArray'); props.favClear() }, style: 'cancel' },
               { text: 'Cancel' }])}>
-            <FontAwesome name={'trash'} size={34 * PixelRatio.getFontScale()} color={'#ffffff'} />
+            <FontAwesome name={'trash'} size={34 * Constants.fontMultiplier} color={'#ffffff'} />
           </TouchableOpacity>
         </View>
       </View>

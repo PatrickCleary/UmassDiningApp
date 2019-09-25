@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,  Text, StyleSheet, PixelRatio, TouchableOpacity } from 'react-native';
+import { View,  Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 import SearchFilterItems from './SearchFilterItems';
 import SearchFilterItemsCategory from './SearchFilterItemsCategory';
@@ -46,7 +46,7 @@ export default class SearchFilters extends React.Component {
             width: '100%', justifyContent: 'center', alignItems: 'center' }}
           onPress={() => this.setState({ visibleModal: 'bottom' })}
         >
-          <Text style={{fontSize: 17*PixelRatio.getFontScale(), color: this.props.chosen? '#ffffff' : Constants.mainColor ,padding:5 }}>{this.props.label}</Text>
+          <Text style={{fontSize: 17*Constants.fontMultiplier, color: this.props.chosen? '#ffffff' : Constants.mainColor ,padding:5 }}>{this.props.label}</Text>
         </TouchableOpacity>
         <Modal
           onBackdropPress={this.onClose}

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Text, View, TextInput, Button, ActivityIndicator, PixelRatio, Linking } from 'react-native';
+import { Text, View, TextInput, Button, ActivityIndicator, Linking } from 'react-native';
 import { getCorrectDate } from './helperFunctions';
 import * as Constants from './Constants';
 
-const fs = PixelRatio.getFontScale();
 
 const styleText = {
-  fontSize: fs * 17,
+  fontSize: Constants.fontMultiplier * 17,
 }
 const headerText = {
-  fontSize: fs * 25
+  fontSize: Constants.fontMultiplier * 25
 }
 
 function fixDates(date) {
@@ -34,7 +33,7 @@ export default function Settings(props) {
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
 
           <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center', alignContent: 'center', }}>
-            <Text style={{ color: 'white', fontFamily: 'Copperplate', fontSize: 40 * PixelRatio.getFontScale(), paddingBottom:'3%'  }}>{'Information'}</Text>
+            <Text style={{ color: 'white', fontFamily: 'Copperplate', fontSize: 40 * Constants.fontMultiplier, paddingBottom:'3%'  }}>{'Information'}</Text>
           </View>
        
         </View>
@@ -79,7 +78,7 @@ export default function Settings(props) {
 
 
         <View style={{flex:.5, alignItems:'center', alignContent:'center', justifyContent:'center'}}>
-        <Text style={{fontSize:17*fs}} >App Icon by MapBox: </Text>
+        <Text style={{fontSize:17*Constants.fontMultiplier}} >App Icon by MapBox: </Text>
         <Button color= {Constants.mainColor} title = "https://www.iconfinder.com/iconsets/maki" onPress = {()=>console.log(Linking.openURL('https://www.iconfinder.com/iconsets/maki'))}></Button>
         <Text>Copyright© 2012, MapBox, LLC. All rights reserved.</Text>
         <Text> </Text>
