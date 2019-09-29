@@ -64,17 +64,17 @@ export default function SearchFilterItems(props) {
 
 
   return (
-    <View >
+    <View  >
       <View style={{ width: '100%', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
         <TouchableHighlight
-        style = {{width:'100%'}}
+        style = {{width:'100%', borderWidth:1, borderColor:'black', borderRadius:10}}
           underlayColor={Constants.mainColor}
           actiiveOpacity={1}
           onPress={() => {changeSelection([]);}}
         >
           <ListItem title={'Clear'}
           titleStyle ={{fontSize:18*Constants.fontMultiplier, fontWeight:'bold', color: Constants.mainColor}}
-          contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center'}}
+          contentContainerStyle = {{flex:1, justifyContent:'center', alignItems:'center',}}
 
           />
         </TouchableHighlight>

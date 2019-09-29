@@ -56,6 +56,7 @@ export default class SearchFilters extends React.Component {
           style={styles.bottomModal}
 
         >
+
          {
            (this.props.check==='cat')?
                 <SearchFilterItemsCategory allCategories = {this.props.allCategories} holdSelection = {(selection)=>{this.setState({selection2:selection});}} options={this.props.options} selected={this.props.selected} close = {this.onClose} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
@@ -87,7 +88,11 @@ const styles = StyleSheet.create({
   bottomModal: {
     //alignItems:'center',
     //flexDirection:'column',
-    justifyContent: 'flex-end',
-    margin: 0,
+
+    justifyContent: 'center',
+    margin: 15,
+    borderColor:'black',
+    borderWidth:1,
+    borderRadius:100
   }
 })

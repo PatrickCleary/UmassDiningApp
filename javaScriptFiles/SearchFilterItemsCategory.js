@@ -79,7 +79,7 @@ export default function SearchFilterItemsCategory(props) {
 
       <View style={{ width: '100%', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
         <TouchableHighlight
-          style={{ width: '100%' }}
+          style={{ width: '100%', }}
           underlayColor='grey'
           actiiveOpacity={1}
           onPress={() => { changeSelection([]); }}
