@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, View, TouchableOpacity, ActivityIndicator, AsyncStorage } from 'react-native';
 import { Entypo, AntDesign } from '@expo/vector-icons';
 import { fixString } from './helperFunctions';
 import * as Constants from './Constants'
@@ -70,29 +70,24 @@ export default function FoodPage(props) {
 
 
     }
+    async function getFoodInfo(name){
+        object = await AsyncStorage.getItem('nutInfo')
+
+        jsonObj = await JSON.parse(object);
+        return jsonObj;
+    }
 
     useEffect(() => {
         setLoading(true);
-        const head = {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        }
 
         var name = fixString(props.name);
 
-        //FIX THIS
         
-
-            const query = "SELECT * FROM nutritionInfo WHERE food = \'" + name + "\';"
-
-            const data = { query: query }
-
-            const url = 'http://diningapphost.online/requestNutInfo.php'
-            const body = { method: 'POST', body: JSON.stringify(data), headers: head };
-            fetch(url, body).then(response => response.json()).then(responseJSON => { changeFood(responseJSON[0]); setLoading(false)})
-                .catch(error => { changeFood(null) });
-
-    }, []);
+        nutInfoObject = getFoodInfo(name).then(foodObj => foodObj.filter((nutObj)=>nutObj.food == name)).then(foodInfo => changeFood(foodInfo[0]));
+        
+        setLoading(false);
+     }
+    , []);
 
 
     if (!loading) {

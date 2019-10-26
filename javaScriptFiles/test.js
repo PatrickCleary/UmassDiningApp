@@ -30,10 +30,10 @@ function getCorrectDate(){
  async function updateMenu() {
         let date = getCorrectDate();
 
-        const query = "SELECT * FROM todaysMenu" + date + ' ORDER BY category, food;';
+        const query = "SELECT * FROM nutritionInfo";
         const data = { query: query }
 
-        const url = 'http://diningapphost.online/requestData.php'
+        const url = 'http://diningapphost.online/requestNutInfo.php'
         const body = { method: 'POST', body: JSON.stringify(data) };
         try {
             let response = await fetch(url, body)

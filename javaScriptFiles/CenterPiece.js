@@ -128,16 +128,11 @@ function getCategories(all){
 
     }
 async function getNutInfo(){
-    setLoading(true);
     const head = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
     }
 
-    var name = fixString(props.name);
-
-    //FIX THIS
-    
 
         const query = "SELECT * FROM nutritionInfo;"
 
@@ -145,9 +140,21 @@ async function getNutInfo(){
 
         const url = 'http://diningapphost.online/requestNutInfo.php'
         const body = { method: 'POST', body: JSON.stringify(data), headers: head };
-        fetch(url, body).then(response => response.json()).then(responseJSON => { changeFood(responseJSON[0]); setLoading(false)})
-            .catch(error => { changeFood(null) });
-        as
+        let response = await fetch(url, body);
+        let responseJSON = await response.json();
+        saveNutData(responseJSON);
+
+
+}
+async function saveNutData(NutInfo) {
+    
+    try {
+        let JSONString = JSON.stringify(NutInfo);
+        await AsyncStorage.setItem('nutInfo', JSONString);
+
+    } catch (error) {
+        console.error(error);
+    }
 
 }
 
@@ -172,13 +179,14 @@ async function getNutInfo(){
         }
         catch (error) { console.error(error) };
     }
-    
+
 
     function getMenu() {
         todaysDate = getCorrectDate();
 
         if (menuDate != todaysDate) {
             updateMenu();
+            getNutInfo();
             getFavs();
         } else {
             getAsyncMenu();
