@@ -127,7 +127,29 @@ function getCategories(all){
         setModal({ modalName: foodName, modalView: true, modalFav: favorite });
 
     }
+async function getNutInfo(){
+    setLoading(true);
+    const head = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+    }
 
+    var name = fixString(props.name);
+
+    //FIX THIS
+    
+
+        const query = "SELECT * FROM nutritionInfo;"
+
+        const data = { query: query }
+
+        const url = 'http://diningapphost.online/requestNutInfo.php'
+        const body = { method: 'POST', body: JSON.stringify(data), headers: head };
+        fetch(url, body).then(response => response.json()).then(responseJSON => { changeFood(responseJSON[0]); setLoading(false)})
+            .catch(error => { changeFood(null) });
+        as
+
+}
 
 
 
@@ -150,6 +172,7 @@ function getCategories(all){
         }
         catch (error) { console.error(error) };
     }
+    
 
     function getMenu() {
         todaysDate = getCorrectDate();
