@@ -68,7 +68,7 @@ class FoodListItem extends React.Component {
             titleProps={{ numberOfLines: 1 }}
             titleStyle={{ color: 'black', fontSize : fstitle }}
             title={this.props.item.food}
-            subtitle={this.props.item.hall + " - " + this.props.item.meal + " - " + this.props.item.category}
+            subtitle={this.props.item.hall + " - " + this.props.item.meal}
             subtitleStyle={{ color: 'grey', fontSize: fssubtitle }}
           /></TouchableOpacity>
       </View>

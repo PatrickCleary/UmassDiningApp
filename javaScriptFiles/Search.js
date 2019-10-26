@@ -50,7 +50,7 @@ export default function Search(props) {
                 <SearchFilters selected={categoryFilter} allCategories={props.allCategories} options={categoryArray} check={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen={props.categoryChosen} />
             </View>
             <View style = {{backgroundColor:Constants.mainColor, flex:.05}}>
-            <TouchableOpacity underlayColor = {'#ffffff'} style = {{color:'#ffffff'}}  title = {'Clear Filters'} onPress = {()=>{props.clearFilters()}}>
+            <TouchableOpacity underlayColor = {'#ffffff'} style = {{color:'#ffffff'}}  title = {'Clear Filters'} onPress = {()=>{props.passSelectedCategories([]),props.passSelectedHalls([]),props.passSelectedMeals([]);}}>
             <View style = {{justifyContent:'center', alignContent:'center', alignItems:'center'}}>
             <Text style= {{fontSize: 18*Constants.fontMultiplier,color:'#ffffff'}}>Clear Filters</Text>
             </View>

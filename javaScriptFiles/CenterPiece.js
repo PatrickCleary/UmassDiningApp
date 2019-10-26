@@ -130,6 +130,7 @@ function getCategories(all){
 
 
 
+
     //PHP SQL query
     async function updateMenu() {
         let date = getCorrectDate();
@@ -218,7 +219,7 @@ function getCategories(all){
                 passSelectedHalls={(selected) => { updateSearch(todaysMenu, searchTerm, selected, mealFilter, categoryFilter); changeHallFilter(selected); }}
                 passSelectedMeals={(selected) => { updateSearch(todaysMenu, searchTerm, hallFilter, selected, categoryFilter); changeMealFilter(selected); }}
                 passSelectedCategories={(selected) => { updateSearch(todaysMenu, searchTerm, hallFilter, mealFilter, selected); changeCategoryFilter(selected); }}
-                clearFilters ={()=>{changeHallFilter([]);changeMealFilter([]); changeCategoryFilter([]); updateSearch(todaysMenu, searchTerm, [], [], [])}}
+                clearFilters ={()=>{updateSearch(todaysMenu, searchTerm, [], [], []); changeHallFilter([]);changeMealFilter([]); changeCategoryFilter([])}}
                 hallChosen={hallFilter.length>0 }
                 mealChosen={(mealFilter.length> 0)}
                 categoryChosen = {(categoryFilter.length>0)}

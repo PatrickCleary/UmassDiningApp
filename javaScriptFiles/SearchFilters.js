@@ -28,7 +28,6 @@ export default class SearchFilters extends React.Component {
   }
   
   render() {
-
     return (
       <View style = {{paddingRight:'1%', paddingLeft:'1%', paddingBottom:'1%', flex:1}}>
       <View style={{
