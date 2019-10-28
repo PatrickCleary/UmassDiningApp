@@ -8,7 +8,6 @@ import * as Constants from './Constants'
 
 
 
-
 export default class SearchFilters extends React.Component {
 
   state = {

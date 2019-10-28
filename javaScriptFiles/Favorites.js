@@ -1,11 +1,15 @@
 import React, { useState, } from 'react';
 import { View, AsyncStorage, FlatList, TouchableOpacity, Alert, Text } from 'react-native';
-import { arrayToString } from './helperFunctions';
+import { arrayToString, fixString } from './helperFunctions';
 import FavoritesListItems from './FavoritesListItems';
 import FoodPage from './FoodPage.js';
 import Modal from 'react-native-modal';
 import FavoritesOptionsList from './FavoritesOptionsList';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, AntDesign } from '@expo/vector-icons';
+import { SearchBar } from 'react-native-elements'
+import FoodList from './FoodList';
+
+
 import * as Constants from './Constants'
 
 
@@ -18,9 +22,20 @@ export default function Favorites(props) {
 
 
 
+  [searching, setSearching] = useState(false);
   [food, setFood] = useState('');
   [modalOptions, setModalOptions] = useState({ modalName: '', modalFav: true, modalView: false });
+  [searchObject, setSearchObject] = useState(props.nutritionInfo)
+  [searchTerm, updateSearchTerm] = useState('');
 
+  function updateSearch(searchTerm){
+    updateSearchTerm(searchTerm);
+    var regex = new RegExp(`\\b${fixString(searchTerm)}.*`, 'gi');
+    const foods = props.nutritionInfo.filter((foodObj) => foodObj.food.match(regex));
+    setSearchObject(foods);
+
+
+  }
 
   renderSeparator = () => {
     return (
@@ -135,22 +150,44 @@ export default function Favorites(props) {
 
       <View style={{ backgroundColor: Constants.mainColor, justifyContent: 'center', alignItems: 'center' }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }} >
-
-          <TouchableOpacity style={{ flex: 1, paddingLeft: '3%' }} onPress={() => { }}>
-          </TouchableOpacity>
-          <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center', alignContent: 'center', }}>
-            <Text style={{ color: 'white', fontFamily: 'Copperplate', fontSize: 40 * Constants.fontMultiplier, paddingBottom:'3%'  }}>{'Favorites'}</Text>
-          </View>
-          <TouchableOpacity style={{ flex: 1, paddingRight: '3%', paddingBottom:'3%' }}
+        
+        <TouchableOpacity style={{ flex: 1, paddingLeft: '3%', paddingBottom:'3%' }}
             onPress={() => Alert.alert(
               'Remove All Favorites?', '',
               [{ text: 'Yes', onPress: async function () { await AsyncStorage.removeItem('favoritesArray'); props.favClear() }, style: 'cancel' },
               { text: 'Cancel' }])}>
             <FontAwesome name={'trash'} size={34 * Constants.fontMultiplier} color={'#ffffff'} />
           </TouchableOpacity>
+          <View style={{ flex: 7, justifyContent: 'center', alignItems: 'center', alignContent: 'center', }}>
+            <Text style={{ color: 'white', fontFamily: 'Copperplate', fontSize: 40 * Constants.fontMultiplier, paddingBottom:'3%'  }}>{'Favorites'}</Text>
+          </View>
+          {searching?
+          <TouchableOpacity style={{ flex: 1, paddingRight: '3%' }} onPress={() => {setSearching(false)}}>
+          <AntDesign name={'check'} color= {'#ffffff'} size={34*Constants.fontMultiplier} />
+          
+          </TouchableOpacity>
+
+          :
+          <TouchableOpacity style={{ flex: 1, paddingRight: '3%' }} onPress={() => {setSearching(true); setSearchObject(props.nutritionInfo) }}>
+          <AntDesign name={'plus'} color= {'#ffffff'} size={34*Constants.fontMultiplier} />
+
+          </TouchableOpacity>
+          }
         </View>
       </View>
-      <View style={{ backgroundColor: '#dedede', width: '100%', height: 1 }}></View>
+      <View style={{ backgroundColor: '#dedede', width: '100%', height: 0 }}></View>
+      {searching?
+      <View style = {{flex:10}}>
+          <SearchBar returnKeyType='search' inputContainerStyle={{ backgroundColor: '#ffffff' }} searchIcon={style = { color: Constants.mainColor }} cancelButtonProps={buttonStyle = { color: '#ffffff' }} containerStyle={{ backgroundColor: Constants.mainColor }} autoCorrect={false} platform='ios' lightTheme={true} placeholder="Search Menu" onChangeText={(text) => { updateSearch(text) }} value={searchTerm} ></SearchBar>
+          <FoodList  
+              onFoodPress={(foodName, favorite) => props.onFoodPress(foodName, favorite)}
+              jsonFood={searchObject}
+              favArray={props.favArray}
+              onFavChange={(boolean, foodName) => { props.onFavChange(boolean, foodName) }}/>
+        </View>
+      :
+
+
       <View style={{ flex: 10 }}>
         { props.favArray.length?
         <FlatList
@@ -168,6 +205,8 @@ export default function Favorites(props) {
         </View>
         }
       </View>
+
+      }
     </View>
 
 

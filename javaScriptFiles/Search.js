@@ -1,4 +1,4 @@
-import React, { } from 'react';
+import React, { useState} from 'react';
 import { View, TouchableOpacity, Text} from 'react-native';
 import { SearchBar, Icon } from 'react-native-elements'
 import FoodList from './FoodList';
@@ -6,6 +6,8 @@ import Modal from 'react-native-modal';
 import FoodPage from './FoodPage';
 import SearchFilters from './SearchFilters';
 import * as Constants from './Constants'
+import MyButtons from './MyButtons'
+
 
 
 /*Flat list:
@@ -15,6 +17,7 @@ import * as Constants from './Constants'
 */
 
 //search page function
+
 export default function Search(props) {
 
     let dayOfWeek = new Date().getDay()
@@ -22,6 +25,17 @@ export default function Search(props) {
     let hallArray = ['Berkshire', 'Hampshire', 'Franklin', 'Worcester'];
     let categoryArray = props.categoriesProp;
     
+    let [availableNow, setAvailableNow] = useState(false)
+    
+
+    function changeAvailable(){
+        setAvailableNow(!availableNow);
+        props.searchObject = props.nutritionInfo
+        
+
+    }
+    
+
     //render Search page
     return (
         <View style={{ flex: 12 }}>
@@ -49,12 +63,9 @@ export default function Search(props) {
                 <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen={props.mealChosen} />
                 <SearchFilters selected={categoryFilter} allCategories={props.allCategories} options={categoryArray} check={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen={props.categoryChosen} />
             </View>
-            <View style = {{backgroundColor:Constants.mainColor, flex:.05}}>
-            <TouchableOpacity underlayColor = {'#ffffff'} style = {{color:'#ffffff'}}  title = {'Clear Filters'} onPress = {()=>{props.passSelectedCategories([]),props.passSelectedHalls([]),props.passSelectedMeals([]);}}>
-            <View style = {{justifyContent:'center', alignContent:'center', alignItems:'center'}}>
-            <Text style= {{fontSize: 18*Constants.fontMultiplier,color:'#ffffff'}}>Clear Filters</Text>
-            </View>
-            </TouchableOpacity>
+            <View style = {{backgroundColor:Constants.mainColor, flexDirection:'row', paddingBottom:'1%'}}>
+            <MyButtons label={'Clear Filters'} chosen={props.hallChosen || props.mealChosen} onPress = {()=>props.clearFilters()}/>
+
             </View>
             <FoodList
                 onFoodPress={(foodName, favorite) => props.onFoodPress(foodName, favorite)}

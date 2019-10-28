@@ -124,6 +124,7 @@ function getCategories(all){
             
             const category = meals.filter((foodObj) => (categoryFilter.length ? categoryFilter.includes(foodObj.category) : true));
             
+            //const corns = category.filter((foodObj) => (nutritionInfo.find((obj)=> obj.food == foodObj.food).Corn ==1 ))
 
             updateSearchObject(category);
 
@@ -178,7 +179,7 @@ async function saveNutData(NutInfo) {
         const query = "SELECT * FROM todaysMenu" + date + 'tester ORDER BY category, food;';
         const data = { query: query }
 
-        const url = 'http://diningapphost.online/requestData.php'
+        const url = 'http://diningapphost.online/requestDataNew.php'
         const body = { method: 'POST', body: JSON.stringify(data) };
         try {
             let response = await fetch(url, body)
@@ -207,6 +208,7 @@ async function saveNutData(NutInfo) {
 
     //todays menu
     [todaysMenu, updateTodaysMenu] = useState([]);
+    [nutritionInfo, saveNutData] = useState([]);
 
     //menu date used to determine if update necessary.
     [menuDate, setMenuDate] = useState(0);
@@ -276,13 +278,15 @@ async function saveNutData(NutInfo) {
                 //updates favorites on food list.
                 onFavChange={(boolean, foodName) => { boolean ? changeFavs([...jsonFavs, foodName]) : changeFavs(jsonFavs.filter((food) => !(food === foodName))); favChange(boolean, foodName) }}
 
-                //JSON of search results and favorites.
+                //JSON of search results, favorites, and nutrition info.
                 searchObject={searchObject}
                 jsonFavs={jsonFavs}
+                nutritionInfo = {nutritionInfo}
             />
         } else if (props.pageNum === 2) {
             return (
                 <Favorites
+                    nutritionInfo = {nutritionInfo}
                     favArray={jsonFavs}
                     modalInfo={modal}
                     closeModal={() => setModal({ ...modal, modalView: false })}
