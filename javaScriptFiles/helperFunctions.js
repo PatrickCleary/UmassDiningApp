@@ -2,6 +2,42 @@ import { AsyncStorage } from 'react-native';
 
 
 
+export function createQuery(hallFilter, mealFilter){
+    let mealArray = [];
+    let hallArray =[];
+
+    let queryArray = [];
+
+    if(mealFilter.length > 0){
+        if(mealFilter.includes('Breakfast')) mealArray.push('b');
+        if(mealFilter.includes('Lunch' || 'Brunch')) mealArray.push('l');
+        if(mealFilter.includes('Dinner')) mealArray.push('d');
+        if(mealFilter.includes('Late Night')) mealArray.push('ln');
+        if(mealFilter.includes('Grab And Go')) mealArray.push('gg');
+    }else{
+        mealArray = ['b', 'l', 'd', 'ln', 'gg'];
+    }
+    if(hallFilter.length > 0){
+        if(hallFilter.includes('Berkshire')) hallArray.push('b');
+        if(hallFilter.includes('Hampshire')) hallArray.push('h');
+        if(hallFilter.includes('Franklin')) hallArray.push('f');
+        if(hallFilter.includes('Worcester')) hallArray.push('w');
+    }else{
+        hallArray = ['b', 'h', 'f', 'w'];
+    }
+    hallArray.forEach((ha)=>{
+        mealArray.forEach((ma)=>{
+            queryArray.push(ha.concat(ma));
+            
+        })
+
+    })
+    return queryArray;
+
+
+
+}
+
 
 export function getCorrectDate(){
 

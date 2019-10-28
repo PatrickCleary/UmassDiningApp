@@ -1,9 +1,9 @@
 {
   "expoServerNgrokUrl": "https://bs-z7v.patcleary11.awesomeproject.exp.direct",
   "packagerNgrokUrl": "https://packager.bs-z7v.patcleary11.awesomeproject.exp.direct",
-  "ngrokPid": 3360,
+  "ngrokPid": 6384,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 4124
+  "packagerPid": 15780
 }

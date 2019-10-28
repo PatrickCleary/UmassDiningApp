@@ -70,7 +70,7 @@ export default function FoodPage(props) {
 
 
     }
-    async function getFoodInfo(name){
+    async function getFoodInfo(){
         object = await AsyncStorage.getItem('nutInfo')
 
         jsonObj = await JSON.parse(object);
@@ -83,7 +83,7 @@ export default function FoodPage(props) {
         var name = fixString(props.name);
 
         
-        nutInfoObject = getFoodInfo(name).then(foodObj => foodObj.filter((nutObj)=>nutObj.food == name)).then(foodInfo => changeFood(foodInfo[0]));
+        nutInfoObject = getFoodInfo().then(foodObj => foodObj.filter((nutObj)=>nutObj.food == name)).then(foodInfo => changeFood(foodInfo[0]));
         
         setLoading(false);
      }

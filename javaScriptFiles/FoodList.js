@@ -79,7 +79,7 @@ export default class FoodList extends React.PureComponent {
                 ItemSeparatorComponent={this.renderSeparator}
                 data={this.props.jsonFood}
                 renderItem={this._renderItem}
-                keyExtractor={(item, index) => item.food + item.hall + item.category + item.meal } 
+                keyExtractor={(item, index) => item.food + item.category } 
                 extraData={this.props.favArray}
                 windowSize = {15}
                 ListEmptyComponent = { <View style={{ alignItems: 'center', paddingTop: '1%' }}><Text >No results.</Text></View>}

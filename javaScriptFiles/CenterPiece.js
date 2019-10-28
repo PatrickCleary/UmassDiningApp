@@ -4,7 +4,7 @@ import Favorites from './Favorites';
 import Settings from './Settings';
 import Search from './Search';
 import FoodPage from './FoodPage';
-import { getCorrectDate, fixString } from './helperFunctions';
+import { getCorrectDate, fixString, createQuery } from './helperFunctions';
 
 
 
@@ -95,8 +95,21 @@ function getCategories(all){
             return  Array.from(categorySet);
 }
 
+    function checkAvail(foodObj, queryArray){
+        for( let x = 0; x< queryArray.length; x++){
+
+            if(foodObj[queryArray[x]] == 1 ){
+                return true;
+            }
+        }
+
+        return false;
+    }
 
     function updateSearch(jsonFood, searchTerm, hallFilter, mealFilter, categoryFilter) {
+
+            queryArray = createQuery(hallFilter, mealFilter);
+
 
 
             updateSearchTerm(searchTerm);
@@ -105,9 +118,7 @@ function getCategories(all){
 
             const foods = jsonFood.filter((foodObj) => foodObj.food.match(regex));
 
-            const halls = foods.filter((foodObj) => (hallFilter.length ? hallFilter.includes(foodObj.hall) : true));
-
-            const meals = halls.filter((foodObj) => (mealFilter.length ? mealFilter.includes(foodObj.meal) : true));
+            const  meals = foods.filter((foodObj)=>queryArray.length ? checkAvail(foodObj, queryArray) :true)
             
             objectMinusCategoryFilters = meals;
             
@@ -164,7 +175,7 @@ async function saveNutData(NutInfo) {
     async function updateMenu() {
         let date = getCorrectDate();
 
-        const query = "SELECT * FROM todaysMenu" + date + ' ORDER BY category, food;';
+        const query = "SELECT * FROM todaysMenu" + date + 'tester ORDER BY category, food;';
         const data = { query: query }
 
         const url = 'http://diningapphost.online/requestData.php'
