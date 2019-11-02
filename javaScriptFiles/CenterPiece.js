@@ -5,6 +5,7 @@ import Settings from './Settings';
 import Search from './Search';
 import FoodPage from './FoodPage';
 import { getCorrectDate, fixString, createQuery } from './helperFunctions';
+import registerForPushNotificationsAsync from './Notifications.js';
 
 
 
@@ -74,6 +75,8 @@ async function saveData(todaysMenu) {
 
 export default function CenterPiece(props) {
 
+x = registerForPushNotificationsAsync();
+console.log(x.then(x => x.json()))
 function getCategories(all){
     if(objectMinusCategoryFilters.length === 0 || all == true){
         let categorySet = new Set([]);

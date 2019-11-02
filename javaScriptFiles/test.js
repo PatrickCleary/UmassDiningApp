@@ -7,12 +7,11 @@ function getCorrectDate(){
 
     
     function getCorrectMonth(){
-        let month=   parseInt(new Date().getMonth());
+        let month = parseInt(new Date().getMonth());
            month = month+1;
-           if(month<10)
-           
-           return '0'+month.toString();
-           else return month.toString();
+            if(month<10)
+               return '0'+month.toString();
+            return month.toString();
        }
        function getCorrectDay(){
            let day = parseInt(new Date().getDate());

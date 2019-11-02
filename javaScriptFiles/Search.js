@@ -2,7 +2,8 @@ import React, { useState} from 'react';
 import { View, TouchableOpacity, Text} from 'react-native';
 import { SearchBar, Icon } from 'react-native-elements'
 import FoodList from './FoodList';
-import Modal from 'react-native-modal';
+import Modal, { SlideAnimation } from 'react-native-modals';
+
 import FoodPage from './FoodPage';
 import SearchFilters from './SearchFilters';
 import * as Constants from './Constants'
@@ -28,12 +29,6 @@ export default function Search(props) {
     let [availableNow, setAvailableNow] = useState(false)
     
 
-    function changeAvailable(){
-        setAvailableNow(!availableNow);
-        props.searchObject = props.nutritionInfo
-        
-
-    }
     
 
     //render Search page
@@ -41,13 +36,22 @@ export default function Search(props) {
         <View style={{ flex: 12 }}>
             <Modal
 
-                isVisible={props.modalInfo.modalView}
+                visible={props.modalInfo.modalView}
+                swipeDirection={['up', 'down']} // can be string or an array
+                swipeThreshold={20} // default 100
+                rounded = {true}
+                onSwipeOut={(event) => {
+                    props.closeModal();
+                   }}
+                   onTouchOutside={() => {
+                    props.closeModal();
+                  }}
 
-                onSwipeComplete={() => props.closeModal()}
-                swipeDirection="down"
                 backdropColor={'#ffffff'}
                 backdropOpacity={1}
-                style={{ flex: 1, margin: 0 }}
+                modalAnimation={new SlideAnimation({
+                    slideFrom: 'bottom',
+                  })}
             >
                 <FoodPage
                     onFavChange={(boolean, foodName) => { props.onFavChangeModal(boolean, foodName) }}

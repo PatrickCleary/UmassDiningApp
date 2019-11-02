@@ -67,9 +67,9 @@ export default function SearchFilterItems(props) {
     <View  >
       <View style={{ width: '100%', alignItems:'center', alignContent:'center', justifyContent:'center'}}>
         <TouchableHighlight
-        style = {{width:'100%', borderWidth:1, borderColor:'black', borderRadius:10}}
+        style = {{width:'100%'}}
           underlayColor={Constants.mainColor}
-          actiiveOpacity={1}
+          activeOpacity={1}
           onPress={() => {changeSelection([]);}}
         >
           <ListItem title={'Clear'}
@@ -84,6 +84,8 @@ export default function SearchFilterItems(props) {
 
 
       <FlatList
+        scrollEnabled={false}
+
         ItemSeparatorComponent={this.renderSeparator}
         data={props.options}
         renderItem={this.renderItem}
@@ -106,7 +108,6 @@ export default function SearchFilterItems(props) {
           />
         </TouchableHighlight>
 
-        {renderSeparator()}
       </View>
     </View>
   );

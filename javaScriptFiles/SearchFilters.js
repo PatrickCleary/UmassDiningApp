@@ -1,6 +1,7 @@
 import React from 'react';
 import { View,  Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Modal from 'react-native-modal';
+import Modal, { SlideAnimation, ModalContent } from 'react-native-modals';
+
 import SearchFilterItems from './SearchFilterItems';
 import SearchFilterItemsCategory from './SearchFilterItemsCategory';
 import * as Constants from './Constants'
@@ -47,20 +48,30 @@ export default class SearchFilters extends React.Component {
           <Text style={{fontSize: 17*Constants.fontMultiplier, color: this.props.chosen? '#ffffff' : Constants.mainColor ,padding:5 }}>{this.props.label}</Text>
         </TouchableOpacity>
         <Modal
-          onBackdropPress={this.onClose}
-          isVisible={this.state.visibleModal === 'bottom'}
-          onSwipeComplete={this.onClose}
-          swipeDirection={['down']}
-          style={styles.bottomModal}
-
+         visible={this.state.visibleModal}
+         swipeDirection={['up', 'down']} // can be string or an array
+         swipeThreshold={20} // default 100
+         rounded = {true}
+         width = {this.props.check == 'cat' ? .95: .75}
+         onSwipeOut={(event) => {
+          this.onClose();
+         }}
+         onTouchOutside={() => {
+          this.onClose();
+        }}
+        //modalAnimation={new SlideAnimation({
+         // slideFrom: 'bottom',
+       // })}
+         style = {style.bottomModal}
         >
-
+          <ModalContent>
          {
            (this.props.check==='cat')?
                 <SearchFilterItemsCategory allCategories = {this.props.allCategories} holdSelection = {(selection)=>{this.setState({selection2:selection});}} options={this.props.options} selected={this.props.selected} close = {this.onClose} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
                   :
               <SearchFilterItems holdSelection = {(selection)=>{this.setState({selection2:selection});}} options={this.props.options} selected={this.props.selected} close = {this.onClose} passSelected={(selectionArray) =>{this.props.passSelected(selectionArray)}}/>
          }
+         </ModalContent>
         </Modal>
 
       </View>
@@ -86,11 +97,8 @@ const styles = StyleSheet.create({
   bottomModal: {
     //alignItems:'center',
     //flexDirection:'column',
-
+    width: '50%',
+    height:'50%',
     justifyContent: 'center',
-    margin: 15,
-    borderColor:'black',
-    borderWidth:1,
-    borderRadius:100
   }
 })

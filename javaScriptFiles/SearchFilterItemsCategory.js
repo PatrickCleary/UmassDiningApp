@@ -96,6 +96,8 @@ export default function SearchFilterItemsCategory(props) {
 
       <View style={{ backgroundColor: '#ffffff' }}>
         <FlatList
+        scrollEnabled={false}
+
           ItemSeparatorComponent={this.renderSeparator}
           data={allCategories}
           renderItem={this.renderItem}

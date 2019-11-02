@@ -63,28 +63,31 @@ export default function Favorites(props) {
 
     for (var x = 0; x < props.menu.length; x++) {
       if (item === props.menu[x].food) {
-        switch (props.menu[x].meal) {
-          case ('Breakfast'):
-            b.push(props.menu[x].hall);
-            break;
+        if(props.menu[x]["hb"] ==1 ) b.push("Hampshire")
+        if(props.menu[x]["bb"] ==1 ) b.push("Berkshire")
+        if(props.menu[x]["wb"] ==1 ) b.push("Worcester")
+        if(props.menu[x]["fb"] ==1 ) b.push("Franklin")
 
-          case ('Lunch'):
-            l.push(props.menu[x].hall);
-            break;
+        if(props.menu[x]["hl"] ==1 ) l.push("Hampshire")
+        if(props.menu[x]["bl"] ==1 ) l.push("Berkshire")
+        if(props.menu[x]["wl"] ==1 ) l.push("Worcester")
+        if(props.menu[x]["fl"] ==1 ) l.push("Franklin")
 
-          case ('Dinner'):
-            d.push(props.menu[x].hall);
-            break;
+        if(props.menu[x]["hd"] ==1 ) d.push("Hampshire")
+        if(props.menu[x]["bd"] ==1 ) d.push("Berkshire")
+        if(props.menu[x]["wd"] ==1 ) d.push("Worcester")
+        if(props.menu[x]["fd"] ==1 ) d.push("Franklin")
 
-          case ('Late Night'):
-            ln.push(props.menu[x].hall);
-            break;
+        if(props.menu[x]["hln"] ==1 ) ln.push("Hampshire")
+        if(props.menu[x]["bln"] ==1 ) ln.push("Berkshire")
+        if(props.menu[x]["wln"] ==1 ) ln.push("Worcester")
+        if(props.menu[x]["fln"] ==1 ) ln.push("Franklin")
 
-          case ('Grab And Go'):
-            gg.push(props.menu[x].hall);
-            break;
+        if(props.menu[x]["hgg"] ==1 ) gg.push("Hampshire")
+        if(props.menu[x]["bgg"] ==1 ) gg.push("Berkshire")
+        if(props.menu[x]["wgg"] ==1 ) gg.push("Worcester")
+        if(props.menu[x]["fgg"] ==1 ) gg.push("Franklin")
 
-        }
 
       }
 
