@@ -75,8 +75,6 @@ async function saveData(todaysMenu) {
 
 export default function CenterPiece(props) {
 
-x = registerForPushNotificationsAsync();
-console.log(x.then(x => x.json()))
 function getCategories(all){
     if(objectMinusCategoryFilters.length === 0 || all == true){
         let categorySet = new Set([]);
@@ -285,6 +283,7 @@ async function saveNutData(NutInfo) {
                 searchObject={searchObject}
                 jsonFavs={jsonFavs}
                 nutritionInfo = {nutritionInfo}
+                requestNotif = {()=>registerForPushNotificationsAsync()}
             />
         } else if (props.pageNum === 2) {
             return (

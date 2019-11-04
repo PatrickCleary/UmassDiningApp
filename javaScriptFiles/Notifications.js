@@ -3,13 +3,16 @@ import * as Permissions from 'expo-permissions';
 
 const PUSH_ENDPOINT = 'http://diningapphost.online/saveUser.php'
 
+
+
+
 export default async function registerForPushNotificationsAsync() {
   const { status: existingStatus } = await Permissions.getAsync(
     Permissions.NOTIFICATIONS
   );
 
   let finalStatus = existingStatus;
-
+console.log(finalStatus)
   // only ask if permissions have not already been determined, because
   // iOS won't necessarily prompt the user a second time.
   if (existingStatus !== 'granted') {
@@ -38,7 +41,6 @@ return fetch('http://diningapphost.online/saveUser.php', {
     },
     body: JSON.stringify({
   
-      username:'\'Patrick\'',
   
       token:'\''+ tokenValue+'\''
   

@@ -67,8 +67,9 @@ export default function Search(props) {
                 <SearchFilters selected={props.mealFilter} options={mealArray} passSelected={(selected) => props.passSelectedMeals(selected)} label={"Meal"} chosen={props.mealChosen} />
                 <SearchFilters selected={categoryFilter} allCategories={props.allCategories} options={categoryArray} check={'cat'} passSelected={(selected) => props.passSelectedCategories(selected)} label={"Category"} chosen={props.categoryChosen} />
             </View>
+            
             <View style = {{backgroundColor:Constants.mainColor, flexDirection:'row', paddingBottom:'1%'}}>
-            <MyButtons label={'Clear Filters'} chosen={props.hallChosen || props.mealChosen} onPress = {()=>props.clearFilters()}/>
+            <MyButtons label={'ask notif'} chosen={props.hallChosen || props.mealChosen} onPress = {()=>props.requestNotif()}/>
 
             </View>
             <FoodList

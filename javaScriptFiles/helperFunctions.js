@@ -113,6 +113,11 @@ export function arrayToStringMeal(array) {
 
 }
 
+export function createNotification(food){
+
+    
+}
+
 export async function isFavorite(food) {
 
 

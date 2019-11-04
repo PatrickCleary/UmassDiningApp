@@ -8,7 +8,7 @@ import FavoritesOptionsList from './FavoritesOptionsList';
 import { FontAwesome, AntDesign } from '@expo/vector-icons';
 import { SearchBar } from 'react-native-elements'
 import FoodList from './FoodList';
-
+import {createNotification} from './Notifications'
 
 import * as Constants from './Constants'
 
@@ -145,8 +145,9 @@ export default function Favorites(props) {
         <FavoritesOptionsList
           onFavChange={() => { props.onFavChange(!modalOptions.modalFav, modalOptions.modalName); setModalOptions({ ...modalOptions, modalFav: false }) }}
           onFavAdd={() => { props.onFavChange(!modalOptions.modalFav, modalOptions.modalName); setModalOptions({ ...modalOptions, modalFav: true }) }}
-          modalOptions={modalOptions} Button={[{ name: 'Remove From Favorites', function: 1 }, { name: 'View Nutrition Info', function: 2 }, { name: 'Create Notification (Coming Soon)', function: 3 }]} />
-
+          modalOptions={modalOptions} Button={[{ name: 'Remove From Favorites', function: 1 }, { name: 'View Nutrition Info', function: 2 }, { name: 'Create Notification (Coming Soon)', function: 3 }]}
+          createNotification={()=> createNotification}
+          />
 
       </Modal>
 

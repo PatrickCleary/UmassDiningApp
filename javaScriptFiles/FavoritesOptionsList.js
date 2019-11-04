@@ -46,7 +46,23 @@ export default function SearchFilterItems(props) {
           title={props.modalOptions.modalFav? 'Remove From Favorites' : 'Undo'}
           titleStyle = {{color : Constants.mainColor}}  
           />
+         
+
         </TouchableHighlight>
+
+        <TouchableHighlight
+          underlayColor='grey'
+          actiiveOpacity={1}
+          onPress={() => props.createNotification()}
+        
+        >
+        <ListItem
+          contentContainerStyle ={{justifyContent:'center', alignItems:'center'}}
+
+          title = {'Create Notification'}
+          titleStyle = {{color: Constants.mainColor}}
+          />
+          </TouchableHighlight>
       </View>
      
     </View>
